@@ -1,13 +1,33 @@
 \section{Basic algorithms for solving MDPs}
 
-A policy $\pi$ is a function from a state $s$ to an action $a$ that operates in the context of a Markov Decision Process, i.e. $\pi \colon S \to A$. A policy is thus a description of how to act in each state of an MDP. An arbitrary policy is denoted by $\pi$ and the optimal policy (the policy with the largest expected reward in the MDP) is denoted by $*$. The rest of this section is describes some basic algorithms for solving, that is to say finding an optimal policy, in an MDP.
+A policy $\pi$ is a function from a state $s$ to an action $a$ that operates in
+the context of a Markov Decision Process, i.e. $\pi \colon S \to A$. A policy
+is thus a description of how to act in each state of an MDP. An arbitrary
+policy is denoted by $\pi$ and the optimal policy (the policy with the largest
+expected reward in the MDP) is denoted by $*$. The rest of this section is
+describes some basic algorithms for solving, that is to say finding an optimal
+policy, in an MDP.
 
 
 \subsection{Value functions}
 
-To solve an MDP most algorithms make uses an estimation of values of states or actions. Two value functions are usually defined, the state-value function $V : S \to \mathbb R$ and the state-action-value function $Q : S \times A \to \mathbb R$. As the names implies $V$ signifies how good a state is, while $Q$ signifies how good an action in a state is. The state-value function, $V^\pi(s)$, returns the expected value when starting in state $s$ and following policy $\pi$ thereafter. The state-action-value function $Q^\pi(s, a)$ returns the expected value when starting in state $s$ and taking action $a$ and thereafter following policy $\pi$. The value functions for the optimal policy are denoted by $V^*(s)$ and $Q^*(s, a)$. 
+To solve an MDP most algorithms make uses an estimation of values of states or
+actions. Two value functions are usually defined, the state-value function $V :
+S \to \mathbb R$ and the state-action-value function $Q : S \times A \to
+\mathbb R$. As the names implies $V$ signifies how good a state is, while $Q$
+signifies how good an action in a state is. The state-value function,
+$V^\pi(s)$, returns the expected value when starting in state $s$ and following
+policy $\pi$ thereafter. The state-action-value function $Q^\pi(s, a)$ returns
+the expected value when starting in state $s$ and taking action $a$ and
+thereafter following policy $\pi$. The value functions for the optimal policy
+are denoted by $V^*(s)$ and $Q^*(s, a)$. 
 
-Both $V^\pi$ and $Q^\pi$ can be estimated from experience. This can be done by maintaining the average of the rewards that have followed each state when following the policy $\pi$. When the number of times the state has been encountered goes to infinity, the average over these histories of rewards converges to the true values of the value function \parencite{barto1998reinforcement}.
+Both $V^\pi$ and $Q^\pi$ can be estimated from experience. This can be done by
+maintaining the average of the rewards that have followed each state when
+following the policy $\pi$. When the number of times the state has been
+encountered goes to infinity, the average over these histories of rewards
+converges to the true values of the value function
+\parencite{barto1998reinforcement}.
 
 \input{Technical_Background/ValueFunctions/dynamic_programming.tex}
 
