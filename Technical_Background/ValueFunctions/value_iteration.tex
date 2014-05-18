@@ -1,19 +1,19 @@
-\subsection{Value Iteration \note{R}}
+\subsection{Value iteration}
 \label{sec:valueiteration}
 
-Value iteration is a simplification of policy iteration where only one step of policy evaluation is performed in each iteration \parencite{barto1998reinforcement}. Value iteration does not compute an actual policy until the value function has converged. Value iteration works as follows
+Value iteration is a simplification of policy iteration where only one step of policy evaluation is performed in each iteration \parencite{barto1998reinforcement}. Value iteration does not compute an actual policy until the value function has converged. Value iteration works as follows:
 
 \begin{description}
-\item[Initialization]
+\item[Initialization] \hfill \\
     Start with an arbitrary value function $V$.
-\item[Value iteration]
-    Update $V$ for each state using the update rule \eqref{eq:valiter}
+\item[Value iteration] \hfill \\
+    Update $V$ for each state using the update rule~\eqref{eq:valiter}
 \item Repeat value iteration until $V$ converges
-\item Compute the policy using \eqref{eq:valiterpolicy}
+\item Compute the policy using~\eqref{eq:valiterpolicy}
 \end{description}
 
 \begin{equation} \label{eq:valiter}
-V_{k+1}(s) = \operatorname*{max}_a \sum_{s'}{P(s, a, s') \left[R(s, a) + \gamma V_k(s')\right]}
+V_{k+1}(s) = \max_a \sum_{s'}{P(s, a, s') \left[R(s, a) + \gamma V_k(s')\right]}
 \end{equation}
 
 \begin{equation} \label{eq:valiterpolicy}

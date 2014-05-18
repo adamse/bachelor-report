@@ -1,13 +1,21 @@
-
-\subsection{Value Iteration with Confidence Intervals \note{N}}
+\subsection{Value iteration with confidence intervals}
 \label{sec:modification_conf_interval}
 
-%Model Based Interval Estimation is an algorithm for estimating a near optimal policy with a confidence interval.
+The confidence  bounds on the Q-values in the MBIE-algorithm are calculated by
+making a maximally optimistic estimation of these values, given some confidence
+parameter. The less times a state-action pair has been visited, the more
+optimistic this estimation will be. This has the effect of promoting
+exploration of actions that have been taken few times. 
 
-In short, the confidence  bounds on the Q-values in the MBIE-algorithm are calculated by making a maximally optimistic estimation of these values, given some confidence parameter. The less times a state-action pair has been visited, the more optimistic this estimation will be. This has the effect of promoting exploration of actions that have been taken few times. 
-
-When a state is first encountered by the agent, the Q-values associated with the state are initialized with the maximum achievable reward. When the actions are later performed, the state-action pairs have their Q-values gradually decreased depending on the reward and the value expected. 
-Given time, the confidence bounds will become smaller and smaller, and the policy will converge to optimal actions with confidence specified by a confidence parameter. The bound for the confidence interval on a Q-value can be calculated by iterating the following equation (cf. section \ref{sec:valueiteration} about the basic value iteration algorithm) for all state-action pairs until it converges:
+When a state is first encountered by the agent, the Q-values associated with
+the state are initialized with the maximum achievable reward. When the actions
+are later performed, the state-action pairs have their Q-values gradually
+decreased depending the expected value. Given time, the confidence bounds will
+become smaller and smaller, and the policy will converge to optimal actions
+with confidence specified by a confidence parameter. The bound for the
+confidence interval on a Q-value can be calculated by iterating the following
+equation (cf. section~\ref{sec:valueiteration} about the basic value iteration
+algorithm) for all state-action pairs until it converges:
 
 \begin{align}
 \label{equation:q_upper}
@@ -15,26 +23,19 @@ Q_{upper} (s, a) = & R(s, a) + \nonumber \\
 & \operatorname*{max}_{\tilde{P}(s, a)\in CI(P(s, a), \delta_1)} \gamma \sum_{s'} \tilde{P}(s'|s, a)\operatorname*{max}_{a'} Q_{upper}(s', a')
 \end{align}
 
-%referenser till en pessimistisk agent är inte särskilt relevanta när vi inte gör DDV längre.
-%\begin{align}
-%\label{equation:q_lower}
-%Q_{lower} (s, a) = & R(s, a) + \nonumber \\
-%& \operatorname*{min}_{\tilde{P}(s, a)\in CI(P(s, a), %\delta_1)} \gamma \sum_{s'} \tilde{P}(s'|s, a)\operatorname*{max}_{a'} Q_{lower}(s', a')
-%\end{align}
+
+To efficiently calculate the correct expected maximum Q-values in equation \eqref{equation:q_upper}, a method is used that generates a distribution of the transition probabilities $\tilde{P}$ that maximizes the sum in the equation \parencite{Strehl20081309}. This algorithm is referred to as Compute$\tilde{P}$ in this report.
 
 
-In order to efficiently calculate the correct expected maximum Q-values in equation \ref{equation:q_upper}, a method is used that generates a distribution of the transition probabilities $\tilde{P}$ that maximizes the sum in the equation \parencite{Strehl20081309}. This algorithm is referred to as Compute$\tilde{P}$ in this report.
+\subsection{Compute$\tilde{P}$, optimistic estimations of transition probabilities}
 
-
-\subsection{Compute $\tilde{P}$, Optimistic Estimations of Transition Probabilities}
-
-The fundamental idea of the Compute $\tilde{P}$ method is that it starts with the observed transition probabilities, $\hat{P}$, and then it moves probability mass from ``bad'' outcomes to ``good'' outcomes and finall returns an updated version of $\tilde{P}$. This updated $\tilde{P}$ maximizes the sum in equation \ref{equation:q_upper}, which has been proved by Strehl and Littman \parencite{Strehl20081309}.
+The fundamental idea of the Compute$\tilde{P}$ method is that it starts with the observed transition probabilities, $\hat{P}$, and then it moves probability mass from ``bad'' outcomes to ``good'' outcomes and finall returns an updated version of $\tilde{P}$. This updated $\tilde{P}$ maximizes the sum in equation \ref{equation:q_upper}, which has been proved by Strehl and Littman \parencite{Strehl20081309}.
 
 The state transition probability distribution is initialized according to \ref{equation:roof}, which corresponds to the observed probabilities.
 
 \begin{equation}
 \label{equation:roof}
-\hat{P} = \tilde{P} = \frac{N(s,a,s')}{N(s,a)}
+\tilde{P} := \hat{P} = \frac{N(s,a,s')}{N(s,a)}
 \end{equation}
 
 In this equation $N(s, a)$ is the number of times action $a$ has been tried in state $s$ and $N(s, a, s')$ is the number of times action $a$ has been taken in state $s$ and this resulted in the agent ending up in state $s'$.
