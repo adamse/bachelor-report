@@ -1,0 +1,11 @@
+\section{Algorithm Implementation \note{B}}
+\label{sec:implementation}
+The experiment utilizes RL-Glue (section \ref{sec:rl_glue}) for connecting the agents and environment for the experiment. Thereby using the pre-defined specifications of RL-Glue when developing the agents, improving their re-usability. 
+
+The complex phase of the constructing of the experiments is the implementation of the agents and verifying their behaviour. The difficulty of this is correlated with the size of the problem domain and for a smaller problem the results are much easier to verify. For the environments constructed specifically for testing the agents iteratively, an important design consideration was to make sure that the correct results were easy to either derive or were obvious from inspection. By starting with smaller problems and using an iterative approach it was possible to identify bottlenecks in our implementations and correct possible errors early. The two following sections describe the GridWorld and network simulator enviornments that were used for this purpose. 
+
+\subsection{Gridworld \note{N}}
+The environment GridWorld was implemented to easily be able to verify the correctness of the MBIE algorithm. It consists of a total of twelve states with one blocked state, one starting state, one winning state, one losing state and eight empty states. The agent can take five actions, go north, south, west, east or exit. The exit-action is only possible from the winning or losing state. When taking an action being in one state and the action is directed to another empty state there is an 80\% probability to succeed and 10\% probability to fail and go sideways. 5\% for each side. 
+
+\subsection{Network simulator \note{N}}
+A simple computer network simulation was also implemented as a simple test for the \etre\ algorithm. In this environment, the agent tries to keep a network of computers up and running. All computers start in the running state, but there is a chance that they randomly stop working. If a computer is down, it has a chance to cause other computers connected to it to also fail. In each time step, the agent chooses one computer to restart, which with 100 percent probability will be in working condition in the next time step. The agent is rewarded for each computer in the running state after each time step. 

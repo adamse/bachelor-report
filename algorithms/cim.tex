@@ -1,0 +1,8 @@
+\section{Model-Based Interval Estimation \note{N}}
+\label{sec:mbie}
+Model-based interval estimation uses value iteration with modifications to consider confidence intervals. These confidence intervals allow the agent to choose between actions, based on how confident it is about its evaluation of them. In effect, the less certain the agent is about its evaluation of the states and actions, the the more exploratory the actions will be. When the agent is more confident however, it will exploit what it has learnt so far about the MDP. \parencite{dietterich2013pac}
+
+\input{Algorithms/MBIE/modification_of_value_it}
+\input{Algorithms/MBIE/gt.tex}
+\input{Algorithms/MBIE/perform_planning}
+\input{Algorithms/MBIE/modded_bounds}

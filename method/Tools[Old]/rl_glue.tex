@@ -1,0 +1,10 @@
+\subsection{RL-Glue \note{Reviderad}}
+\label{sec:glue}
+
+To evaluate the agents we used RL-Glue framework which acts as an interface for communication between the agent and the environment. The software uses the RL-Glue protocol, which specifies how a reinforcement learning problem should be divided when constructing experiments and how the different programs should communicate.
+
+RL-Glue divides the reinforcement learning process into three different programs: an agent, an environment and an experiment. RL-Glue provides a server software that manages the communication between these programs. The agent and the environment programs are responsible for executing the tasks as specified by RL-Glue and the experiment program is working as a bridge between the agent and environment \parencite{tanner2009rl}.
+
+The modular structure of RL-Glue makes it easier to construct repeatable reinforcement learning experiments. By separating the agent from the environment it is possible to reuse the environment and switch out the agent. It also makes it a lot easier to cooperate and continue working on existing environments implemented by other programmers, possibly saving a lot of time.
+
+The modular structure also allows the different programs to be written in different programming languages. RL-Glue's external mode allows for communication through sockets allowing the programs to be written in any language that supports socket communication \parencite{tanner2009rl}.

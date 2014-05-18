@@ -1,0 +1,35 @@
+\section{Reinforcement Learning \note{Reviderad}}
+
+%These areas comprise different subcategories and problems of their own. An approach to learning from experience is Reinforcement Learning, where the agent takes an action and receives a reward according to some measure of how good the action was. This could be compared to Pavlovian conditioning: teaching dogs by rewarding them for desired behavior and punishing them for undesired behavior. 
+
+\begin{comment}
+Reinforcement learning is an approach to the learning from experience problem in artificial intelligence. The reinforcement learning problem is modeled as a sequential decision problem: a learning algorithm, an agent, performs an action and receives a reward according to some measure of how desirable the results of the action are. See figure \ref{fig:agentandenvironment} for a graphical representation of the process \parencite{barto1998reinforcement}.
+\begin{figure}[H]
+\includegraphics[width=\textwidth]{images/agent-environment.pdf}
+\caption{The reinforcement learning process}
+\label{fig:agentandenvironment}
+\end{figure}
+After the action is taken, the state of the environment changes and the agent then receives a new observation of it, and then the process repeats.  The goal of the reinforcement learning agent is to maximize the reward received over a certain time period, finding a balance between immediate and future rewards. 
+\end{comment}
+
+Reinforcement learning is an approach to the learning from experience problem in artificial intelligence. A reinforcement learning algorithm's intelligence is built upon having experiences which are then incorporated into the algorithm's own domain knowledge. This knowledge is then used to make intelligent decisions in the future \parencite{barto1998reinforcement}.
+
+\begin{figure}[H]
+\includegraphics[width=\textwidth]{images/agent-environment.pdf}
+\caption{The reinforcement learning process}
+\label{fig:agentandenvironment}
+\end{figure}
+
+The reinforcement learning problem is modeled as a sequential decision problem, see figure \ref{fig:agentandenvironment} for a graphical representation of the process. A learning algorithm, an agent, performs an action and receives a reward according to some measure of how desirable the results of the action are.  After the action is taken, the state of the environment changes and the agent then receives a new observation of it, and then the process repeats. The goal of the reinforcement learning agent is to maximize the reward received over a certain time period, finding a balance between immediate and future rewards \parencite{barto1998reinforcement}. 
+
+
+%One thing that sets reinforcement learning apart from other fields within artificial intelligence is that a reinforcement learning problem is solved by an online algorithm. That is, a reinforcement learning algorithm learns about its task and environment while operating in the environment. The actions taken by the agent affect what it knows about the environment, and thus its appraisal of the value of future actions and/or states of the environment.
+
+
+There are several ways of further dividing reinforcement learning problems into other subcategories. Some examples are the dichotomies 1) episodic/non-episodic problems 2) problems with continuous/discrete state spaces 3) problems with continuous/discrete action spaces 4) problems with one/multiple concurrent agents. (etc.) In the text below, the two first of these dichotomies, which are relevant to this thesis, are discussed. 
+
+\subsection{Episodic and Non-episodic Problems}
+One can categorize reinforcement learning problems based on whether or not the time steps are divided into episodes. When the time steps for the agent-environment interaction are divided into subsequences in this manner, the problem is called episodic. This is common in for example games, which end when they are won or lost. If the problem is not episodic, it is called non-episodic, which means, consequently, that the interaction is not divided into subsequences. Instead, the interaction between the actor and environment goes on continually without end \parencite{barto1998reinforcement}. Two examples of non-episodic applications are controlling a robot arm (as well as other robotics problems) and maneuvering a helicopter \parencite{ng2006autonomous}. 
+
+\subsection{Continuous and Discrete Problems}
+An alternative way to categorize reinforcement learning problems is based on whether their state spaces are continuous or discrete. An important difference between the two kinds of problems is how an agent can treat similar states in the model. In a continuous problem it is a lot easier to group together states located around the same ``position'' due to the nature of a continuous problem, where the states usually more or less meld together. For example, if the reinforcement learning problem is to control a robot arm whose position is the state of the environment, the different states located around the same general area are not very different. This means that they might be treated in the same way or a similar way by an agent. On the other hand, consider the discrete problem of a game of connect four, wherein the placement of a coin into one of two adjacent slots could dramatically change the evaluation of the state and the outcome of the game \parencite{barto1998reinforcement}.

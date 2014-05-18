@@ -1,0 +1,43 @@
+In figure~\ref{fig:tests1}, \ref{fig:tests2} and \ref{fig:tests3} we have test results from running our agents on the invasive species environment on different sizes of river network. The raw data can be found in appendix~\ref{ap:result_tables}.
+
+The agent learns for 100 episodes with 100 samples per episode, other parameters are specified in section~\ref{sec:test_spec}. The invasive species environment associates a certain cost with each state and action, thus the reward is always negative. In each test the reward varies over time for the MBIE agent, the realistic MBIE agent and the DBN-\etre\ agent.
+
+With smaller state spaces (see figure~\ref{fig:3r3h}, \ref{fig:3r2h} and \ref{fig:5r1h}) we can see that the realistic MBIE agent outperforms the proper MBIE agent and comes close to the superior DBN-\etre\ agent. In the tests where the state space is larger (see figure~\ref{fig:5r3h}, \ref{fig:10r1h} and \ref{fig:4r3h}) proper MBIE and realistic MBIE are very close to each other in performance while the DBN-\etre\ agent outperforms both.
+
+In each of the test runs the DBN-\etre\ algorithm exhibits a period of learning that corresponds to exploration (as described in section~\ref{sec:e3}) where the agent has not explored the environment enough and seeks new states.
+
+\newcommand{\graphwidth}{0.47\textwidth}
+\newcommand{\testsubfigure}[2]{%
+\begin{subfigure}[b]{\graphwidth}
+    \includegraphics[width=\textwidth]{images/tests/#1r-#2h.pdf}
+    \caption{#1 reaches and #2 habitats per reach}
+    \label{fig:#1r#2h}
+\end{subfigure}
+}
+
+\begin{figure}[H]
+    \centering
+    \testsubfigure{3}{3}
+    \quad
+    \testsubfigure{3}{2}
+    \caption{Test runs with different number of reaches and habitats}
+    \label{fig:tests1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \testsubfigure{5}{1}
+    \quad
+    \testsubfigure{5}{3}
+    \caption{Test runs with different number of reaches and habitats}
+    \label{fig:tests2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \testsubfigure{4}{3}
+    \quad
+    \testsubfigure{10}{1}
+    \caption{Test runs with different number of reaches and habitats}
+    \label{fig:tests3}
+\end{figure}

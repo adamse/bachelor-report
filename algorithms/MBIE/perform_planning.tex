@@ -1,0 +1,9 @@
+\subsection{How Often to Perform Planning \note{N}}
+\label{sec:mbie_perform_planning}
+%It is possible that for each action taken perform planning and compute a new policy, but that would be an unnecessarily expensive computation. The planning consists of updating \note{ptilde}, Q-tables and V-tables. Instead the algorithm only updates the policy at some given interval. One alternative could be performing planning each time the total number of actions taken has been doubled. For the Invasive species environment we choose to perform planning when the number of actions taken has been multiplied by 1.5, or when over 2000 steps it performs planning every 2000 steps.
+
+It is possible to perform planning and compute a new policy once for each action taken by the agent. However, this would be unnecessarily slow to compute. The planning comprises iterating Q-value updates to convergence and then using these converged values to update V-tables, a considerable number of computations. So instead of planning after every action taken, the algorithm only performs planning and updates the policy at some given interval. \note{A common way to do this that we have used is to only perform an update when the number of times a specific state-action pair has been visited has doubled.
+For larger variants of the Invasive species environment we choose to perform planning when the number of actions taken has been multiplied by 1.5 {om detta stämmer fortfarande?}.}
+% Detta är text om pTilde, ska flyttas.
+
+%Then the Q-tables and V-tables is being updated with \note{ptilde} 

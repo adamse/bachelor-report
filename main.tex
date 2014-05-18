@@ -1,0 +1,72 @@
+\documentclass[]{report}
+
+\usepackage[utf8]{inputenc}
+\usepackage{comment}
+\usepackage{color}
+\usepackage{todonotes}
+\usepackage{hyperref}
+
+% To be able to include pdfs in the document
+\usepackage{pdfpages}
+
+% To use appendices
+\usepackage[toc,page]{appendix}
+
+% Fancy maths!
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% Fancy references
+\usepackage[style=authoryear,date=iso8601]{biblatex}
+\addbibresource{jelzin.bib}
+
+% Fancy graphics
+\usepackage{graphicx}
+
+% For the finest tables
+\usepackage{booktabs}
+\usepackage{longtable}
+
+% For mutliple column pages
+\usepackage{multicol}
+
+% For the finest of subfigures in figures or tables
+\usepackage{subcaption}
+
+% To be able to position figure envs exactly where you want them use H.
+\usepackage{float}
+
+% Nice environments for pseudocode
+\usepackage[chapter]{algorithm}
+\usepackage{algpseudocode}
+
+\title{Reinforcement learning}
+\date{June 2014}
+
+% Useful commands
+\newcommand{\note}[1]{\textcolor{red}{#1}}
+\newcommand{\etre}{\ensuremath{E^3}}
+
+\begin{document}
+
+\input{title.tex}
+
+\input{abstract.tex}
+
+\tableofcontents
+
+\listoftodos
+
+\input{Introduction/main.tex}
+\input{Technical_Background/main.tex}
+\input{Algorithms/main.tex}
+\input{Method/main.tex}
+\input{Result/main.tex}
+\input{Discussion/main.tex}
+\input{Conclusion/main.tex}
+
+\printbibliography
+
+\input{Appendix/main.tex}
+
+\end{document}

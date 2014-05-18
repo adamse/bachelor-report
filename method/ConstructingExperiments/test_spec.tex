@@ -1,0 +1,90 @@
+\section{Test Specification \note{N}}
+\label{sec:test_spec}
+
+The testing of the agents required us to choose certain sets of parameters, for the environment, the two different agents and the experiment itself. 
+
+\paragraph{Environment parameters}
+The invasive species environment requires a number of parameters. For further explanation of the environment parameters consult the environment webpage\footnote{\url{http://2013.rl-competition.org/domains/invasive-species}}. The specific parameters used are presented in appendix~\ref{sec:environment_spec}.
+
+
+\paragraph{Agent Parameters}
+
+The agents evaluated required different types of parameters. Some preliminary tests were ran and then the parameters giving best results were chosen. Parameters for MBIE in table~\ref{tab:mbie_params_both}.
+
+\todo{Include the differences between realistic and not MBIE here!}
+\begin{table}[H]
+\centering
+\captionof{table}{Parameters for MBIE}
+\label{tab:mbie_params_both}
+
+\begin{subfigure}[b]{0.47\textwidth}
+    \centering
+    \captionof{table}{Proper MBIE}
+    \label{tab:mbie_params} 
+    \begin{tabular}{lr}
+     \toprule
+     Parameter & Value \\
+     \midrule
+     Discount factor & 0.9 \\
+     Confidence & 95\% \\
+     $\Delta \omega$ & $\sqrt{\frac{2|ln(2^{|S|}-2) - ln  \delta |}{N(s,a)}}$ \\
+     
+     \bottomrule
+    \end{tabular}
+\end{subfigure}
+\quad
+\begin{subfigure}[b]{0.47\textwidth}
+    \centering
+    \captionof{table}{Realistic MBIE}
+    \label{tab:mbie_realistic_params}
+    \begin{tabular}{lr}
+     \toprule
+     Parameter & Value \\
+     \midrule
+     Discount factor & 0.9 \\
+     Confidence & 95\% \\
+     $\Delta \omega$ & $1 - 0.05 N(s,a)$ \\
+     \bottomrule
+    \end{tabular}
+\end{subfigure}
+\end{table}
+
+Secondly, for DBN-\etre\ using a higher exploration limit resulted in the agent starting to exploit earlier but with a slightly lower final return. A higher partial state known limit resulted in later exploitation but no appreciable difference in final return. The values in table~\ref{tab:dbne3_params} were a good middle ground.
+
+\begin{table}[H]
+\captionof{table}{DBN-\etre\ parameters}
+\label{tab:dbne3_params}
+\centering
+\begin{tabular}{lr}
+ \toprule
+ Parameter & Value \\
+ \midrule
+ Discount factor & 0.9 \\
+ Exploration limit & 5\% \\
+ Partial state known limit & 5 \\
+ \bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Experiment parameters}
+The tests performed had to be long enough to sample enough data to extract relevant results without being too long. A single test consisted of a specific number of episodes with a specific length. A good combination was required to efficiently evaluate the agents. If a single episode consisted of too many samples it would be difficult to see the learning process as results are reported as total reward over an episode and that process might be hidden as its impact on the total reward is smaller with a longer episode. On the other hand, if an episode length is too short it would end before the agents could do any valuable learning. In addition to a satisfactory episode length, a reasonable number of episodes needs to be sampled for it to be possible to draw conclusions from the results. If the number of episodes is too small the convergence of the agents cannot be seen. However, if the number of episodes are too large a lot of sampled data would be redundant for the study. Some preliminary experiments were run in order to tune the experiment parameters to suitable values. The episode length was 100 samples and there were 100 episodes per test.
+
+To evaluate the agents in the invasive species environment combinations of reaches and number of habitats per reach that can be seen in table~\ref{tab:reaches_habitats} were choosen. Combinations were chosen to have a wide range in the total number of states for the agents to deal with and to test how the agents deal with taking actions that have to take into account several state components.
+
+\begin{table}[H]
+\centering
+\caption{Combinations of reaches and habitats used in testing.}
+\label{tab:reaches_habitats}
+\begin{tabular}{rrr}
+ \toprule
+ Reaches & Habitats & Total states \\
+ \midrule
+ 5  & 1 &          243 \\
+ 3  & 2 &          729 \\
+ 3  & 3 &      19\,683 \\
+ 10 & 1 &      59\,049 \\
+ 4  & 3 &     531\,441 \\
+ 5  & 3 & 14\,348\,907 \\
+ \bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,21 @@
+\subsection{Factored additions to \etre\ \note{N}}
+\label{sec:factored_e3}
+
+The \etre\ algorithm does not exploit that the underlying Markov Decision Process may be structured in a way that allows certain optimizations. Therefore \etre\ has a running time that scales polynomially with the number of states in the MDP. However, by using a factored approach for the problem, improvements can be made to the running time. By factoring the problem as a Dynamic Bayesian Network, the running time will scale with the number of random variables in the underlying DBN instead for the number of states \parencite{kearns1999efficient}. 
+
+\todo[inline]{Lägga till i Further Work med de andra två?}
+When using a factored representation some changes to the original algorithm are required to make it compatible. One issue that has to be solved is how to perform  planning with the new representation. One solution is presented by \textcite{dean1999descision} but in this thesis a modified version of value iteration was used for planning and it is described later in this section.
+
+\paragraph{Dynamic Bayesian network structure}
+Assume that the states of an MDP each are divided into several variables. For instance, the invasive species MDP described in section \ref{sec:experiment_env} constitutes such a case, where the status of each reach can be considered a variable on its own. The number of tamarisk trees, native trees and empty slots in a certain reach at time step $t+1$ depends not on the whole state of the environment at time $t$, but only on the status of adjacent reaches. Those variables on which another variable depend are called its parents.  
+
+An MDP that follows the description in the previous paragraph is described as  factored. With the assumption of an MDP being factored, it is possible to describe its transition probabilities as a dynamic Bayesian Network (DBN), where one would have a small transition probability table for each of the reaches in the MDP, instead of a large table for the transitions for the whole states.
+
+\paragraph{Planning in dynamic Bayesian Networks}
+The DBN-\etre\ algorithm does not in itself define what algorithm should be used for planning when the MDP is structured as a DBN \parencite{kearns1999efficient}. It considers planning a black box, leaving the choice of planning algorithm to the implementers. 
+
+Value iteration can be done with a factored representation of an MDP in a fairly straightforward manner. The same equations that normal value iteration (section~\ref{sec:valueiteration}) is based on can be used when the MDP is factored too. The only difference is that in order to calculate the probability of a state transition, $p(s'| a, s)$ one has to find the product of all the partial transitions,
+$$\prod\limits _{i} p(s_i' | a, s_{pa(i)})$$
+where $i$ ranges over all partial states and $s_{pa(i)}$ is the setting of the partial states that have an influence on the value of $s_i'$. 
+
+In the agent implemented in this thesis, the basic idea of treating each partial state individually is taken one step further.

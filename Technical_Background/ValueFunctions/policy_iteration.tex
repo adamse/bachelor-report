@@ -1,0 +1,26 @@
+\subsection{Policy Iteration \note{R}}
+\label{sec:pol_itr}
+
+Policy iteration is a method for solving an MPD that will converge to an optimal policy and the true value function in a finite number of iterations, if the process is a finite MDP. The algorithm consists of three steps: initialization, policy evaluation and policy improvement \parencite{barto1998reinforcement}.
+
+\begin{description}
+\item[Initialization]
+    Start with an arbitrary policy $\pi$ and arbitrary value function $V$.
+\item[Policy evaluation]
+    Compute an updated value function, $V$, for policy $\pi$ in the MDP using the update rule \eqref{eq:polimpr}.
+\item[Policy improvement]
+    Improve the policy by making it greedy with regard to $V$.
+\item Repeat evaluation and improvement until $\pi$ is stable between two iterations.
+\end{description}
+
+Policy evaluation is carried out using the update rule \eqref{eq:vfupdate} until $V$ converges
+policy improvement uses the update rule \eqref{eq:polimpr}\footnote{$\operatorname*{arg\,max} _a$ gives the $a$ that maximizes the value.}.
+
+
+\begin{equation} \label{eq:vfupdate}
+V_{k+1} (s) = \sum_{s'} P(s, a, s') \left[ R(s, s') + \gamma V_k(s')  \right]
+\end{equation}
+
+\begin{equation} \label{eq:polimpr}
+\pi_{k+1} (s) = \operatorname*{arg\,max}_a P(s, a, s') \left[ R(s, s') + \gamma V_k(s') \right]
+\end{equation}

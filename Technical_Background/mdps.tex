@@ -1,0 +1,23 @@
+\section{Markov Decision Process}
+
+Within reinforcement learning, the concept of Markov Decision Processes is central. A Markov Decision Process (MDP) is a way to model an environment where state changes in it are dependent on both random chance and the actions of an agent. An MDP is defined by the quadruple $\left( S, A, P( \cdot , \cdot, \cdot ) , R( \cdot , \cdot ) \right)$ \parencite{altman2002applications}: 
+
+\begin{description}
+\item[$S$] \hfill \\ 
+    A set of states representing the environment.
+\item[$A$] \hfill \\ 
+    A set of actions that can be taken.
+\item[$P \colon S \times A \times S \to \mathbb R$] \hfill \\ 
+    A probability distribution over the transitions in the environment. This function describes the probability of ending up in a certain target state when a certain action is taken from a certain origin state. 
+\item[$R \colon S \times A \to \mathbb{R}$] \hfill \\ 
+    A function for the reward associated with a state transition. In some formulation of MDPs the reward function only depends on the state.
+\end{description}
+
+MDPs are similar to Markov chains, but there are two differences. First, there is a concept of rewards in MDPs, which is absent in Markov chains. Second, in a Markov chain, the only thing that affects the probabilities of transitioning to other states is the current state, whereas in an MPD both the current state and the action taken in that state are needed to know the probability distribution connected with the next state \parencite{altman2002applications}.
+
+
+\input{Technical_Background/MDP/markov_property.tex}
+
+\input{Technical_Background/MDP/sparse_mdps.tex}
+
+\input{Technical_Background/MDP/factored_representations.tex}
