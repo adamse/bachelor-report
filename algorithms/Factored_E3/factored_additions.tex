@@ -18,6 +18,5 @@ Value iteration can be done with a factored representation of an MDP in a fairly
 $$\prod\limits _{i} p(s_i' | a, s_{pa(i)})$$
 where $i$ ranges over all partial states and $s_{pa(i)}$ is the setting of the partial states that have an influence on the value of $s_i'$. 
 
-Observations for partial-state transitions can be pooled together when the partial states 
+When an MDP has this structure, observations of partial transitions can be pooled together when the state variables are part of similar structures in the MDP. In the version of DBN-\etre\ described here, all state variables that have the same number of parent variables have their observations pooled together. 
 
-In the agent implemented in this thesis, the basic idea of treating each partial state individually is taken one step further.
