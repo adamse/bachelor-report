@@ -10,17 +10,8 @@ However, once the agent knows enough about the environment to enter the exploita
 
 \paragraph{Consequences of pooling observation data} An interesting result is that the agent is able to enter the exploitation phase for the 10 reaches/1 habitat per reach test setup slightly earlier than for the 5 reaches/1 habitat per reach setup. This is probably connected to the optimization described in the last paragraph of section \ref{sec:factored_e3}. In the 10 reaches/1 habitat per reach case there are nine reaches with two parents (including the reach itself) and one reach with only itself as parent. In the 5 reaches/1 habitat per reach case there are four reaches with two parents and one reach with only itself as parent. Since observations for state variables with similar parent structure are pooled by our \etre\ implementation, the agent will receive almost double the information per time step for the two-parent reaches in the 10 reaches case as compared to the 5 reaches case.  
 
-\paragraph{Possible issues with the one-policy-per-reach optimization} In section \ref{...} \todo{referens här!} an optimization is described that works very well for the particular environment and environment settings that the agent was tested for. However, this optimization makes several assumptions that may cause problems if the settings are changed. For instance, one assumption is that the state of a reach is only affected directly by its adjacent parents in the DBN. If the state of a reach was made to depend significantly on other reaches two or more levels up in the river network, the agent would probably not be able to converge on an optimal policy. 
+\paragraph{Possible issues with the one-policy-per-reach optimization} In section \ref{sec:one_policy_per_state_variable} an optimization is described that works very well for the particular environment and environment settings that the agent was tested for. However, this optimization makes several assumptions that may cause problems if the settings are changed. For instance, one assumption is that the state of a reach is only affected directly by its adjacent parents in the DBN. If the state of a reach was made to depend significantly on other reaches two or more levels up in the river network, the agent would probably not be able to converge on an optimal policy. 
 
 Another assumption that could lead to problems with other environment settings is the assumption that the maximal action cost in the environment is impossible or very hard to break. The invasive species environment has a maximum cost for actions. However, with the standard settings it is mathematically impossible to break this maximum. Our implementation of \etre\ would achieve very poor performance if this was not the case, since a large penalty is given when the maximum action cost is breached. 
 
 \paragraph{DBN structure} Finally, in the invasive species environment, the structure of the DBN underlying the MDP is known at the start of the experiment, so the agent does not need to infer it from its observations. If this was not the case, all the DBN optimizations would be useless unless some kind of algorithm for infering the DBN structure was added to the agent. 
-
-%kostnad för actions inte signifikant
-
-
-% problem med plan-per-reach om transitions märkbart beror på far-föräldrar
-
-%Varför i hellllllvete blir MBIE inte lika bra som E3 asymptotiskt´? Det borde inte va nån skillnad. 
-
-%
