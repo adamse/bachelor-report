@@ -24,26 +24,40 @@ Q_{upper} (s, a) = & R(s, a) + \nonumber \\
 \end{align}
 
 
-To efficiently calculate the correct expected maximum Q-values in equation \eqref{equation:q_upper}, a method is used that generates a distribution of the transition probabilities $\tilde{P}$ that maximizes the sum in the equation \parencite{Strehl20081309}. This algorithm is referred to as Compute$\tilde{P}$ in this report.
-
+To efficiently calculate the correct expected maximum Q-values in equation
+\eqref{equation:q_upper}, a method is used that generates a distribution of the
+transition probabilities $\tilde{P}$ that maximizes the sum in the equation
+\parencite{Strehl20081309}. This algorithm is referred to as Compute$\tilde{P}$
+in this report.
 
 \subsection{Compute$\tilde{P}$, optimistic estimations of transition probabilities}
 
-The fundamental idea of the Compute$\tilde{P}$ method is that it starts with the observed transition probabilities, $\hat{P}$, and then it moves probability mass from ``bad'' outcomes to ``good'' outcomes and finall returns an updated version of $\tilde{P}$. This updated $\tilde{P}$ maximizes the sum in equation \ref{equation:q_upper}, which has been proved by Strehl and Littman \parencite{Strehl20081309}.
-
-The state transition probability distribution is initialized according to \ref{equation:roof}, which corresponds to the observed probabilities.
+The fundamental idea of the Compute$\tilde{P}$ method is that it starts with
+the observed transition probabilities $\hat{P}$ and then it moves probability
+mass from ``bad'' outcomes to ``good'' outcomes and finally returns an updated
+version of $\tilde{P}$. This updated $\tilde{P}$ maximizes the sum in equation
+\eqref{equation:q_upper}, which has been proved in \textcite{Strehl20081309}.
+The state transition probability distribution is initialized according to
+\eqref{equation:roof}, which corresponds to the observed probabilities.
 
 \begin{equation}
 \label{equation:roof}
 \tilde{P} := \hat{P} = \frac{N(s,a,s')}{N(s,a)}
 \end{equation}
 
-In this equation $N(s, a)$ is the number of times action $a$ has been tried in state $s$ and $N(s, a, s')$ is the number of times action $a$ has been taken in state $s$ and this resulted in the agent ending up in state $s'$.
+In $N(s, a)$ is the number of times action $a$ has been taken in
+state $s$ and $N(s, a, s')$ is the number of times action $a$ has been taken in
+state $s$ and ended up in state $s'$.
 
-The procedure of moving probabilities is done by first finding the outcome state with the best V-value, calling it $\overline{s}$. Next, analogously, the outcome with the worst V-value with an observed probability of greater than 0 is found. This state is called $\underline{s}$. 
+The procedure of moving probabilities is done by first finding the outcome
+state with the best $V$-value and observed probabilty less than 1, calling it
+$\overline{s}$. Analogously the outcome with the worst $V$-value with an
+observed probability of greater than 0 is found, this state is called
+$\underline{s}$. 
 
-The probability values $\tilde{P}(\underline{s}|s,a)$ and $\tilde{P}(\overline{s}|s,a)$ are then increased/decreased by $\xi$, the maximum amount they are allowed to change, according to equations \eqref{equation:ptilde_floor} and \eqref{equation:ptilde_roof}.
-
+The probability values $\tilde{P}(\underline{s}|s,a)$ and
+$\tilde{P}(\overline{s}|s,a)$ are then increased or decreased according to
+equations \eqref{equation:ptilde_floor} and \eqref{equation:ptilde_roof}.
 
 \begin{equation}
 \label{equation:ptilde_floor}
@@ -55,7 +69,10 @@ The probability values $\tilde{P}(\underline{s}|s,a)$ and $\tilde{P}(\overline{s
 \tilde{P}(\overline{s}|s,a) := \tilde{P}(\overline{s}|s,a)+\xi
 \end{equation}
 
-Since we need to ensure that the sum of the probabilities sum to one and that no single transition probability falls below zero or exceeds one we are only allowed to modify the probability distribution by at most $\xi$, as given by equation \ref{equation:xi}. 
+Since we need to ensure that the sum of the probabilities sum to one and that
+no single transition probability falls below zero or exceeds one we are only
+allowed to modify the probability distribution by at most $\xi$, as given by
+equation \ref{equation:xi}. 
 
 \begin{equation}
 \label{equation:xi}
@@ -66,51 +83,29 @@ Since we need to ensure that the sum of the probabilities sum to one and that no
 \}
 \end{equation}
 
-Here, $\Delta \omega$ is $\frac{\sqrt{\frac{2|ln(2^{|S|}-2) - ln  \delta |}{N(s,a)}}}{2}$, where $|S|$ is the total number of states. $\Delta \omega$ denotes the total probability mass to be moved. If $\xi$ is less than $\Delta \omega$, new states $\overline{s}$ and $\underline{s}$ are found, and probabilities moved until mass equal to $\Delta \omega$ has been moved in total. 
+\begin{equation}
+  \Delta \omega = \frac{\sqrt{\frac{2|ln(2^{|S|}-2) - ln  \delta |}{N(s,a)}}}{2}
+\end{equation}
 
-The confidence interval $CI(\hat{P} | N(s, a), \delta_1)$ denotes a set of probability distributions where the probability is $1 - \delta$ for each element in that set where the confidence interval is within distance of $\omega(N(s,a),\delta)$ of the maximum likelihood estimate for P \parencite{dietterich2013pac}. This means that with probability $1-\delta$, the actual transition probabilties are between the observed probabilities and the probabilities returned by Compute $\tilde{P}$   \todo[inline]{Har jag rätt här med sista meningen? /Daniel}
+$|S|$ denotes the total number of states and $\Delta \omega$ denotes the total
+probability mass to be moved. If $\xi$ is less than $\Delta \omega$, new states
+$\overline{s}$ and $\underline{s}$ are found, and probabilities moved until
+mass equal to $\Delta \omega$ has been moved in total. 
+
+The confidence interval $CI(\hat{P} | N(s, a), \delta_1)$
+(equation~\eqref{equation:balls_of_steels}) denotes a set of probability
+distributions where the probability is $1 - \delta$ for each element in that
+set where the confidence interval is within distance of $\omega(N(s,a),\delta)$
+of the maximum likelihood estimate for P \parencite{dietterich2013pac}. This
+means that with probability $1-\delta$, the actual transition probabilties are
+between the observed probabilities and the probabilities returned by
+Compute$\tilde{P}$.
+
+\todo{Is the last sentence correct?}
 
 \begin{equation}
 \label{equation:balls_of_steels}
 CI(\hat{P} | N(s, a), \delta_1)  = \left\{\tilde{P} \left| \|\tilde{P} - \hat{P}\|_1 \le \omega(N(s,a), \delta)\right.\right\}
 \end{equation}
 
-
-%\begin{equation}
-%\label{equation:N}
-%N(s,a) = \sum_{s'}{N(s,a,s')}
-%\end{equation}
-
-%\begin{equation}
-%\label{equation:ptilde_init}
-%\tilde{P}(s'|s,a) := \hat{P}(s'|s,a)
-%\end{equation}
-
-%\begin{equation}
-%\label{equation:deltaomega}
-%\Delta\omega = \omega(N(s,a), \delta)/2
-%\end{equation}
-
 \label{goto}
-
-
-\ifx false
-\label{sec:agent:step}
-\begin{algorithm}      
-\caption{Pseudo code for algorithm}          
-\begin{algorithmic}
-\Loop
-\State action := getActionFromPolicy(s')
-\State sample(s, a, s', r) := takeActionInState(action) 
-\State saveSampleInModel(sample)
-\If{the pair s a is new}
-\State calculateNewPolicy()
-\EndIf
-\If{lastPolicyUpdate was more than X samples ago}
-\State calculateNewPolicy()
-\EndIf
-\EndLoop
-\end{algorithmic}
-\end{algorithm}
-\fi
-
