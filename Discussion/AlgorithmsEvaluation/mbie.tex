@@ -1,10 +1,10 @@
 \subsection{MBIE \note{N}}
-\paragraph{General shape od} In comparison to the \etre\ performance graphs, the MBIE performance exhibits a much smoother transition from poor to good performance. This is due to the fact that MBIE does not have a clear distinction between exploration and exploitation in phases. Instead, MBIE in effect always gives state-action pairs that are relatively unexplored a bonus to their expected value in order to promote exploration.  
+\paragraph{General shape of the results} In comparison to the \etre\ performance graphs, the MBIE performance exhibits a much smoother transition from poor to good performance. This is due to the fact that MBIE does not have a clear distinction between exploration and exploitation in phases. Instead, MBIE in effect always gives state-action pairs that are relatively unexplored a bonus to their expected value in order to promote exploration.  
 
 In the graphs for MBIE there are several ``dips'' in performance. These could be explained as cases when the algorithm by chance enters previously unexplored states and spends several steps exploring this and similar/adjacent states. 
 
 \paragraph{Realistic MBIE and original MBIE}
-The realistic version outperforms the original MBIE in every test. The reason for this is probably 
+The realistic version of MBIE outperforms the original MBIE in every test. This is probably explained by the fact that the state that is the easiest to arrive at is the one that gives the greatest reward. (see section \ref{..}) \todo{referens här!} Since the realistic version of MBIE considers states known and thus evaluates them  realistically rather than optimistically much sooner than the original version of MBIE, it spends much less time exploring unknown states, which are bound to give lower rewards than the easier-explored states. 
 
 %utforska runt "nya" outforskade states
 
