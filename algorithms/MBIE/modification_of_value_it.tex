@@ -10,7 +10,7 @@ exploration of actions that have been taken few times.
 When a state is first encountered by the agent, the Q-values associated with
 the state are initialized with the maximum achievable reward. When the actions
 are later performed, the state-action pairs have their Q-values gradually
-decreased depending the expected value. Given time, the confidence bounds will
+decreased depending on the expected value. Given time, the confidence bounds will
 become smaller and smaller, and the policy will converge to optimal actions
 with confidence specified by a confidence parameter. The bound for the
 confidence interval on a Q-value can be calculated by iterating the following
@@ -45,9 +45,9 @@ The state transition probability distribution is initialized according to
 \tilde{P} := \hat{P} = \frac{N(s,a,s')}{N(s,a)}
 \end{equation}
 
-In $N(s, a)$ is the number of times action $a$ has been taken in
+In \eqref{equation:roof}, $N(s, a)$ is the number of times action $a$ has been taken in
 state $s$ and $N(s, a, s')$ is the number of times action $a$ has been taken in
-state $s$ and ended up in state $s'$.
+state $s$ and the agent ended up in state $s'$.
 
 The procedure of moving probabilities is done by first finding the outcome
 state with the best $V$-value and observed probabilty less than 1, calling it
@@ -72,7 +72,7 @@ equations \eqref{equation:ptilde_floor} and \eqref{equation:ptilde_roof}.
 Since we need to ensure that the sum of the probabilities sum to one and that
 no single transition probability falls below zero or exceeds one we are only
 allowed to modify the probability distribution by at most $\xi$, as given by
-equation \ref{equation:xi}. 
+equation \eqref{equation:xi}. 
 
 \begin{equation}
 \label{equation:xi}

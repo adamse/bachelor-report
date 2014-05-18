@@ -5,9 +5,9 @@ One problem with the method described above is that probability mass can be
 moved to any outcome state, without any consideration taken as to whether this
 outcome has ever been observed. \textcite{dietterich2013pac} make
 use of an optimization that deals with this by limiting the probability mass
-that can be moved to outcomes that have never been observed. The approximation
-of the probability mass in unobserved outcomes is estimated by Good and Turing
+that can be moved to outcomes that have never been observed. The limit that is used is the approximation
+of the probability mass in unobserved outcomes as estimated by Good and Turing
 as $\hat{M}_0(s,a) = |N_1(s,a)| / N(s,a)$ \parencite{gtpaper}. In this
 equation $N_1(s,a)$ is a set of the states that have been observed exactly
 once as an outcome when taking action $a$ in state $s$ and $N(s,a)$ is the
-number of times that action $a$ has been taken in state $s$ in total.
+number of times that action $a$ has been taken in state $s$ in total. 
