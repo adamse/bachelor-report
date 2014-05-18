@@ -1,7 +1,24 @@
-\subsection{One Policy per State Variable \note{N}}
+\subsection{One policy per state variable}
 \label{sec:one_policy_per_state_variable}
-For some MDPs it is possible to create a separate policy for each state variable individually. This is the case when there is a separate action taken for each state variable, which is true for the invasive species environment (section \ref{sec:experiment_env}). In the implementation of \etre\ used in this thesis, this policy creation is performed in two steps. 
 
-First, a policy is calculated for state variables that have no other state variables than themselves as parents in the DBN, and these states are marked as done. Since there is now a decided action for each state for the these state variables, the transition probabilities for these variables can be considered as pure Markov chains. Next, a policy is found for state variables whose parents are marked as done, until all state variables are done. In this second step, the transition probabilities of the parents are thus treated as independent of the action taken. 
+For some MDPs it is possible to create a separate policy for each state
+variable individually. This is the case when there is a separate action taken
+for each state variable, which is true for the invasive species environment
+(section \ref{sec:experiment_env}). In the implementation of \etre\ used in
+this thesis, this policy creation is performed in two steps. 
 
-Planning for each state variable individually has the benefit of making the planning algorithm linear in the number of state variables, greatly reducing the time until an agent can enter the exploitation phase for large state spaces. However, there are several downsides to using this kind of approximation, some of which are discussed in section. \ref{..}. \todo{Fix the reference!}
+First, a policy is calculated for state variables that have no other state
+variables than themselves as parents in the DBN, and these states are marked as
+done. Since there is now a decided action for each state for the these state
+variables, the transition probabilities for these variables can be considered
+as pure Markov chains. Next, a policy is found for state variables whose
+parents are marked as done, until all state variables are done. In this second
+step, the transition probabilities of the parents are thus treated as
+independent of the action taken. 
+
+Planning for each state variable individually has the benefit of making the
+planning algorithm linear in the number of state variables, greatly reducing
+the time until an agent can enter the exploitation phase for large state
+spaces. However, there are several downsides to using this kind of
+approximation, some of which are discussed in section. \ref{..}. \todo{Fix the
+reference!}
