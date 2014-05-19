@@ -37,9 +37,7 @@ work. Comparing the 4 reaches and 3 habitats per reach case seen in
 figure~\ref{fig:tests3}a with the 5 reaches and 3 habitats per reach case seen
 in figure~\ref{fig:tests2}b this can be seen. The algorithms do still improve
 over time although taking longer time to converge, which is expected as the
-state space increases in size. Futhermore, the policy calulation run time for
-the algorithms increased notably with larger state spaces but not to such an
-extent that it posed a practical issue.
+state space increases in size. 
 
 A noteable difference between the original and realistic versions of MBIE is
 that the realistic version has the same level of performance as the original
@@ -50,11 +48,11 @@ realistic version will know the real value of more states than the original
 version, while in larger state spaces both versions will prioritise unknown
 states.
 
-MBIE approaches the problem of a large state space by introducing confidence
-intervals on the values of state and then when sampling moving this shrinking
-this interval closing in on the actual value. By doing so the algorithm have an
-estimation of reality early on even with few samples in a large state space and
-continues to improve on this estimaton in comparison to other algorithms that
-require a much larger sample size in order to give any result at all. 
-
-Secondly, \todo[inline]{Daniel kan du berätta lite om minnesproblemen för oss är du snäll?}
+The DBN-\etre\ algorithm successfully deals with large state spaces. DBN-\etre\
+utilizes a factored approach in representing transition probabilities, this
+allows the algorithm to learn about the invironment quicker whereas a non
+factored approach would struggle to learn the transition probabilities. This
+can be seen in the result where the DBN-\etre\ algorithm quickly knows enough
+to start exploiting. Furthermore, using a factored approach to policy
+calculation allows quick policy calculations making the algorithm fast to run
+in large state spaces.
