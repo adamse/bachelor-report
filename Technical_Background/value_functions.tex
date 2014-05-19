@@ -6,7 +6,7 @@ is thus a description of how to act in each state of an MDP. An arbitrary
 policy is denoted by $\pi$ and the optimal policy (the policy with the largest
 expected reward in the MDP) is denoted by $\pi^*$. The rest of this section
 describes some basic algorithms for solving, that is to say finding an optimal
-policy, in an MDP.
+policy, in an MDP \parencite{barto1998reinforcement}.
 
 \subsection{Value functions}
 
@@ -19,7 +19,7 @@ $V^\pi(s)$, returns the expected value when starting in state $s$ and following
 policy $\pi$ thereafter. Equations \eqref{equation:v_finite} and \eqref{equation:v_infinite} show the equations for the state-value function for a finite time horizon and an infinite, discounted, time horizon respectively. In \eqref{equation:v_infinite}, $\gamma$ is the discount factor, a value between 0 and 1 which describes how fast the value of expected future rewards decay as one looks further into the future. The state-action-value function $Q^\pi(s, a)$ returns
 the expected value when starting in state $s$ and taking action $a$ and
 thereafter following policy $\pi$. The value functions for the optimal policy
-are denoted by $V^*(s)$ and $Q^*(s, a)$. Formulas for the state-action value functions are anologous to those presented for the state value functions. 
+are denoted by $V^*(s)$ and $Q^*(s, a)$. Formulas for the state-action value functions are anologous to those presented for the state value functions \parencite{barto1998reinforcement}. 
 
 \begin{align}
 \label{equation:v_finite}
