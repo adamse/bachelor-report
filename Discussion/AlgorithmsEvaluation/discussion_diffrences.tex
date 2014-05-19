@@ -1,16 +1,67 @@
 \subsection{DBN-\etre\ vs MBIE \note{N}}
 \todo[inline]{Perhaps belongs in conclusion?}
-An expectation on both agents is that they should converge on optimal behavior as $t$ goes to infinity. However, it is clear from the results presented in chapter \ref{ch:results} that neither version of the MBIE agent reaches the same level of performance as the DBN-\etre\ agent. In the smaller problem as seen for example in figure~\ref{fig:tests1}b the diffrence is not all that diffrent between DBN-\etre\ agent and the realistic MBIE. Nevertheless, it is still clear that DBN-\etre\ is far superior in finding the converging policy. Previous studies have been concluded as a comparisson regarding the original \etre\ algorithm and MBIE, in \textcite{strehl2004empirical} that MBIE outperforms \etre\ in their testing environments. The results in this thesis utilized a heavily optimized version of the original \etre\ agent using factored representation and the results speak for themselfs mentioned earlier in this report. 
 
-\paragraph{Unfair comparisons} In one sense, the comparison between our implementations of MBIE and DBN-\etre\ are not very fair. The DBN-\etre\ implementation has been heavily optimized to work with factored MDPs and the invasive species environment in particular, whereas the MBIE implementation is much more generalized. The discussions regarding the generality of the agents in furher continued in section \ref{sec:impact_of_one_env}. However, as mentioned in the last paragraph of section \ref{sec:e3_factored_discussion} when the structure of the underlying MDP the benefits of using a factored representations provides a big advantage as seen in the figures in chapter \ref{ch:results}. This also increases the responsibility on the designer of the factored representation and if done in the wrong way it will prove to become a bottleneck instead of a performance increase.
+An expectation on both agents is that they should converge on optimal behavior
+as $t$ goes to infinity. However, it is clear from the results presented in
+chapter \ref{ch:results} that neither version of the MBIE agent reaches the
+same level of performance as the DBN-\etre\ agent. In the smaller problem as
+seen for example in figure~\ref{fig:tests1}b the diffrence is not all that
+diffrent between DBN-\etre\ agent and the realistic MBIE. Nevertheless, it is
+still clear that DBN-\etre\ is far superior in finding the converging policy.
+Previous studies have been concluded as a comparisson regarding the original
+\etre\ algorithm and MBIE, in \textcite{strehl2004empirical} that MBIE
+outperforms \etre\ in their testing environments. The results in this thesis
+utilized a heavily optimized version of the original \etre\ agent using
+factored representation and the results speak for themselfs mentioned earlier
+in this report. 
+
+\paragraph{Unfair comparisons}
+
+In one sense, the comparison between our implementations of MBIE and DBN-\etre\
+are not very fair. The DBN-\etre\ implementation has been heavily optimized to
+work with factored MDPs and the invasive species environment in particular,
+whereas the MBIE implementation is much more generalized. The discussions
+regarding the generality of the agents in furher continued in section
+\ref{sec:impact_of_one_env}. However, as mentioned in the last paragraph of
+section \ref{sec:e3_factored_discussion} when the structure of the underlying
+MDP the benefits of using a factored representations provides a big advantage
+as seen in the figures in chapter \ref{ch:results}. This also increases the
+responsibility on the designer of the factored representation and if done in
+the wrong way it will prove to become a bottleneck instead of a performance
+increase.
 
 \paragraph{Large state spaces}
-When aprouching large state spaces it is still visible that the algorithms work. Comparing the 4 reaches and 3 habitats per reach case seen in figure~\ref{fig:tests3}a with the 5 reaches and 3 habitats per reach case seen in figure~\ref{fig:tests2}b this can be seen. The algorithms do still improve over time although taking longer time to converge which is expected as the state space increases in size. Futhermore, the run time for the algorithms increased notably with larger state spaces but is nothing we have looked deeper into.  
 
-A noteable difference between the different algorithms is that the realistic version of MBIE performs about the same as the original MBIE in larger state spaces compared to smaller state spaces where the realistic MBIE were clearly better than the original, compare figure~\ref{fig:tests1}b with figure~\ref{fig:tests2}b to see this difference. 
+When the number of states are increased it is clear that the algorithms still
+work. Comparing the 4 reaches and 3 habitats per reach case seen in
+figure~\ref{fig:tests3}a with the 5 reaches and 3 habitats per reach case seen
+in figure~\ref{fig:tests2}b this can be seen. The algorithms do still improve
+over time although taking longer time to converge, which is expected as the
+state space increases in size. Futhermore, the policy calulation run time for
+the algorithms increased notably with larger state spaces but not to such an
+extent that it posed a practical issue.
 
-A pratical limitation today is the amount of space needed to keep all the states in the memory of the computer. With the constant increase of memory in today's computers its becomming less and less of a seriuos limitation. However, the problem arises when the information is needed as a result of updates resulting in slower lookup time when the state space increases \parencite{szepesvari2010algorithms}. The two agents studied take diffrent approaches to circumvent the problem with having the repeated visits the certain states, resulting in diffrent outcomes. If the agents is able to mangae to memory needed to run the simulations, the running time of the algorithms becomes less of an issue and more of a limitation when given a certain time span. Nevertheless the simulations are still possible to create, but may or may not be suitable for executing. 
+A noteable difference between the original and realistic versions of MBIE is
+that the realistic version has the same level of performance as the original
+MBIE in larger state spaces whereas in smaller state spaces the realistic MBIE
+was clearly better than the original. Compare figure~\ref{fig:tests1}b with
+figure~\ref{fig:tests2}b to see this difference. 
 
-First of, MBIE approaches this problem by introducing confidence intervals upon the values of state and then when sampling moving this shrinking this interval closing in on the actual value. By doing so the algorithm have an estimation of reality early on even with few samples in a large state space and continues to improve on this estimaton in comparising to other algorithms \todo[inline]{example / source} that require a much larger sample size in order to give any result at all. 
+A practical limitation today is the amount of space needed to keep all the
+states in the memory of the computer. With the constant increase of memory in
+today's computers its becomming less and less of a serious limitation. However,
+the problem arises when the information is needed as a result of updates
+resulting in slower lookup time when the state space increases
+\parencite{szepesvari2010algorithms}. A problem that we have experienced is
+that the running time becomes a problem before running out of memory with large
+state spaces. 
+
+First of, MBIE approaches this problem by introducing confidence intervals on
+the values of state and then when sampling moving this shrinking this interval
+closing in on the actual value. By doing so the algorithm have an estimation of
+reality early on even with few samples in a large state space and continues to
+improve on this estimaton in comparising to other algorithms
+\todo{example / source} that require a much larger sample size in order
+to give any result at all. 
 
 Secondly, \todo[inline]{Daniel kan du berätta lite om minnesproblemen för oss är du snäll?}
