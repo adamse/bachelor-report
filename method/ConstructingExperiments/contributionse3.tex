@@ -1,0 +1,28 @@
+\subsection{Contributions to \etre}
+\label{sec:e3_our_contribution}
+
+\paragraph{Planning in dynamic Bayesian networks}
+
+The DBN-\etre\ algorithm does not in itself define what algorithm should be
+used for planning when the MDP is structured as a DBN
+\parencite{kearns1999efficient}. It considers planning a black box, leaving the
+choice of planning algorithm to the implementers. 
+
+Value iteration can be done with a factored representation of an MDP in a
+fairly straightforward manner. The same equations that normal value iteration
+(section~\ref{sec:valueiteration}) is based on can be used when the MDP is
+factored too. The only difference is that in order to calculate the probability
+of a state transition, $P(s'| a, s)$ one has to find the product of all the
+partial transitions,
+\begin{equation}
+  \prod\limits _{i} P\left(s_i' | a, pa(s_i)\right)
+\end{equation}
+where $i$ ranges over all partial states and $pa(s_i)$ is the setting of the
+parents of the partial state $s_i$.
+
+When an MDP has this structure, observations of partial transitions can be
+pooled together when the state variables are part of similar structures in the
+MDP. In the version of DBN-\etre\ described here, all state variables that have
+the same number of parent variables have their observations pooled together. 
+
+\input{algorithms/Factored_E3/planning_per_reach}
