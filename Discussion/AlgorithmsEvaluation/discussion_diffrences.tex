@@ -5,6 +5,8 @@ An expectation on both agents is that they should converge on optimal behavior a
 \paragraph{Unfair comparisons} In one sense, the comparison between our implementations of MBIE and DBN-\etre\ are not very fair. The DBN-\etre\ implementation has been heavily optimized to work with factored MDPs and the invasive species environment in particular, whereas the MBIE implementation is much more generalized. %\note{It is thus not surprising that} 
 
 \paragraph{Large state spaces}
-Stora pojkar
+When aprouching large state spaces it is still visible that the algorithms work. Comparing the 4 reaches and 3 habitats per reach case seen in figure~\ref{fig:tests3}a with the 5 reaches and 3 habitats per reach case seen in figure~\ref{fig:tests2}b this can be seen. The algorithms do still improve over time although taking longer time to converge which is expected as the state space increases in size. 
+
+A noteable difference between the different algorithms is that the realistic version of MBIE performs about the same as the original MBIE in larger state spaces compared to smaller state spaces where the realistic MBIE were clearly better than the original, compare figure~\ref{fig:tests1}b with figure~\ref{fig:tests2}b to see this difference. 
 
 \text{strehl2004empirical} 
