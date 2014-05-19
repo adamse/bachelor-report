@@ -1,6 +1,3 @@
 \subsection{Improvements to the MBIE \note{N}}
-%\ref{dietterich2013pac}
-One extension that would be interesting to implement is the DDV-algorithm on which the author says: "(a) DDV requires fewer samples than existing methods to
-achieve good performance and (b) DDV terminates with a
-policy that is approximately optimal with high probability
-after only polynomially-many calls to the simulator" \parencite{dietterich2013pac}.
+
+\textcite{dietterich2013pac} suggests several imrovements to a confidence interval based algorithm called DDV. In MBIE we implement some of these improvements, such as the Good-Turing optimisation (see section~\ref{sec:mbie_gt}), but \textcite{dietterich2013pac} suggests several more, their DDV algorithm promises to ``terminate[\ldots] with a policy that is approximately optimal with high probability after only polynomially manu calls to the simulator''.
