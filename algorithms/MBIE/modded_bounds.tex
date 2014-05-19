@@ -15,6 +15,21 @@ equation $N_1(s,a)$ is a set of the states that have been observed exactly
 once as an outcome when taking action $a$ in state $s$ and $N(s,a)$ is the
 number of times that action $a$ has been taken in state $s$ in total. 
 
+\paragraph{How often to perform planning}
+\label{sec:mbie_perform_planning}
+
+It is possible to perform planning and compute a new policy once for each
+action taken by the agent. However, this would be unnecessarily slow to
+compute. The planning comprises iterating Q-value updates to convergence and
+then using these converged values to update V-tables, a considerable number of
+computations. So instead of planning after every action taken, the algorithm
+only performs planning and updates the policy at some given interval. 
+
+A way to do this that we have used is to only perform an update when the
+number of times a specific state-action pair has been visited has doubled. This is done for small variants of the invasive species environment. For
+large variants we perform planning when
+the total number of actions taken has been multiplied by 1.5. A large variant is defined as when the number of state variables exceeds 9.The number 9 was determinde by running some preliminary tests and choosing a number giving a reasonable run time.
+
 \paragraph{Optimizing bounds} Another optimization that can be performed is that the value $\Delta \omega$ in
 equation~\eqref{equation:xi} can be tweaked to fit the environment that the agent
 is used with. Equation \eqref{equation:xi} gives bounds for which it can be
@@ -25,3 +40,4 @@ at which the agent considers state-action pairs known.
 A simple linearly declining function can be used instead of
 equation~\eqref{equation:xi}. In the so called realistic implementation of MBIE we have
 used $\omega = 1 - \alpha N(s,a).$ The value of the $\alpha$ parameter was decided through experimentation (see section \ref{sec:test_spec}).
+
