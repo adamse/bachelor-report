@@ -28,6 +28,16 @@ Q_{upper} (s, a) = & R(s, a) + \nonumber \\
 CI\left(\hat{P} \left| N(s, a), \delta_1\right.\right)  = \left\{\tilde{P} \left| \|\tilde{P} - \hat{P}\|_1 \le \omega(N(s,a), \delta)\right.\right\}
 \end{equation}
 
+The confidence interval $CI(\hat{P} | N(s, a), \delta_1)$
+(equation~\eqref{equation:balls_of_steels}) denotes a set of probability
+distributions where the probability is $1 - \delta$ for each element in that
+set where the confidence interval is within distance of $\omega(N(s,a),\delta)$
+of the maximum likelihood estimate for P \parencite{dietterich2013pac}. This
+means that with probability $1-\delta$, the actual transition probabilties are
+between the observed probabilities and the probabilities returned by
+Compute$\tilde{P}$.
+
+
 To efficiently calculate the correct expected maximum Q-values in
 equation~\eqref{equation:q_upper}, a method is used that generates a
 distribution of the transition probabilities $\tilde{P}$ that maximizes the sum
@@ -94,14 +104,5 @@ $|S|$ denotes the total number of states and $\Delta \omega$ denotes the total
 probability mass to be moved. If $\xi$ is less than $\Delta \omega$, new states
 $\overline{s}$ and $\underline{s}$ are found, and probabilities moved until
 mass equal to $\Delta \omega$ has been moved in total. 
-
-The confidence interval $CI(\hat{P} | N(s, a), \delta_1)$
-(equation~\eqref{equation:balls_of_steels}) denotes a set of probability
-distributions where the probability is $1 - \delta$ for each element in that
-set where the confidence interval is within distance of $\omega(N(s,a),\delta)$
-of the maximum likelihood estimate for P \parencite{dietterich2013pac}. This
-means that with probability $1-\delta$, the actual transition probabilties are
-between the observed probabilities and the probabilities returned by
-Compute$\tilde{P}$.
 
 \label{goto}
