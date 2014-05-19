@@ -4,8 +4,7 @@ A Bayesian network is a graphical model that represents random variables and
 their dependencies on eachother (see figure~\ref{fig:bn}). Each random variable
 corresponds to a node and a directed edge represents a dependency between the
 target and the source node. \parencite{heckerman1998tutorial}. For instance in
-figure~\ref{fig:bn}, the probabilty distributions for the variable $z$ can be
-changed when the variables $x$ and $y$ are observed. 
+figure~\ref{fig:bn} $Z$ depends on the setting of $X$ and $Y$. 
 
 \begin{figure}[H]
 \centering
@@ -14,7 +13,9 @@ changed when the variables $x$ and $y$ are observed.
 \label{fig:bn}
 \end{figure}
 
-A dynamic Bayesian network (DBN) is a Bayesian network where the random variables are allowed to depend on prior settings of the same random variables as well as eachother, see figure~\ref{fig:dbn}.
+A dynamic Bayesian network (DBN) is a Bayesian network where the random
+variables are allowed to depend on prior settings of the same random variables
+as well as eachother, see figure~\ref{fig:dbn}.
 
 \begin{figure}[H]
     \centering
@@ -23,4 +24,18 @@ A dynamic Bayesian network (DBN) is a Bayesian network where the random variable
     \label{fig:dbn}
 \end{figure}
 
-Transition probabilities for the states of an MDP can be represented by a set of Bayesian networks, one network for each possible action. Such a network is comprised of a node, $n_i$, for each state variable, representing that state variable at time $t$, as well as a node, $n_i'$ for each state variable representing the value of that state variable at time $t+1$. If the probability distribution of a certain state variable $n_k'$ is affected by the value of another state variable $n_j$ if action $a$ is taken then there is a directed edge from $n_j$ to $n_k'$ in the DBN corresponding to action $a$ \parencite{guestrin2003efficient}.
+In Bayesian networks as well as dynamic Bayesian networks one can define the
+parents of a random variable to be the variables that it depends on. In the
+Bayesian network in figure~\ref{fig:bn} the parents of $Z$ are $pa(Z) = \{X,
+Y\}$ and in figure~\ref{fig:dbn} the parents of $Y$ are $pa(Y_{t+1}) = \{Y_t,
+X_t\}$.
+
+Transition probabilities for the states of an MDP can be represented by a set
+of Bayesian networks, one network for each possible action. Such a network is
+comprised of a node, $n_i$, for each state variable, representing that state
+variable at time $t$, as well as a node, $n_i'$ for each state variable
+representing the value of that state variable at time $t+1$. If the probability
+distribution of a certain state variable $n_k'$ is affected by the value of
+another state variable $n_j$ if action $a$ is taken then there is a directed
+edge from $n_j$ to $n_k'$ in the DBN corresponding to action $a$
+\parencite{guestrin2003efficient}.
