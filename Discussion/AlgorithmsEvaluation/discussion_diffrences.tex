@@ -6,9 +6,9 @@ behavior as time goes to infinity. However, it is clear from the results
 presented in chapter \ref{ch:results} that neither version of the MBIE agent
 reaches the same level of performance as the DBN-\etre\ agent in the tests we
 performed. In the smaller problem as seen for example in
-figure~\ref{fig:tests1}b the diffrence is not large between DBN-\etre\ agent
+figure~\ref{fig:tests1}b, the difference is not large between the DBN-\etre\ agent
 and the realistic MBIE. Nevertheless, it is still clear that DBN-\etre\ is far
-superior in finding the policy.
+superior in finding an optimal policy.
 
 \textcite{strehl2004empirical} tested the performance of the MBIE algorithm
 along with the \etre\ algorithm in two non-factored environments, RiverSvim and
@@ -21,7 +21,7 @@ MBIE algorithm.
 
 As discussed in section~\ref{sec:factored_mbie} we did not make any factored
 additions to the MBIE algorithm and it is uncertain wether the DBN-\etre\
-algorithm would retain its superior performace.
+algorithm would retain its superior performace if this had been done.
 
 \paragraph{Unfair comparisons}
 
@@ -37,27 +37,27 @@ larger factored invasive species environment.
 
 \paragraph{Large state spaces}
 
-When the number of states are increased it is clear that the algorithms still
-work. Comparing the 4 reaches and 3 habitats per reach case seen in
-figure~\ref{fig:tests3}a with the 5 reaches and 3 habitats per reach case seen
-in figure~\ref{fig:tests2}b this can be seen. The algorithms still improve
+When the number of states is increased it is clear that the algorithms still
+work. In a comparison between the 4 reaches, 3 habitats-per-reach case seen in
+figure~\ref{fig:tests3}a, and the 5 reaches, 3 habitats-per-reach case seen
+in figure~\ref{fig:tests2}b, this can be seen. The algorithms still improve
 over time although taking longer time to converge, which is expected as the
 state space increases in size. 
 
 A noteable difference between the original and realistic versions of MBIE is
 that the realistic version has the same level of performance as the original
-MBIE in larger state spaces whereas in smaller state spaces the realistic MBIE
-was clearly better than the original. Compare figure~\ref{fig:tests1}b with
-figure~\ref{fig:tests2}b to see this difference. In smaller state spaces the
+MBIE in large state spaces whereas in small state spaces the realistic MBIE
+is clearly better than the original. Compare figure~\ref{fig:tests1}b with
+figure~\ref{fig:tests2}b to see this difference. In small state spaces the
 realistic version will know the real value of more states than the original
-version, while in larger state spaces both versions will prioritise unknown
+version, while in large state spaces both versions will prioritize unknown
 states.
 
 The DBN-\etre\ algorithm successfully deals with large state spaces. DBN-\etre\
 utilizes a factored approach in representing transition probabilities, which
-allows the algorithm to learn about the environment quicker whereas a
+allows the algorithm to learn about the environment more quickly whereas a
 non-factored approach would struggle to learn the transition probabilities.
 This can be seen in the result where the DBN-\etre\ algorithm quickly knows
 enough to start exploiting even in cases such as figure~\ref{fig:5r3h}.
 Furthermore, using a factored approach to policy calculation allows quick
-policy calculations making the algorithm fast to run in large state spaces.
+policy calculations, making the algorithm fast to run in large state spaces.
