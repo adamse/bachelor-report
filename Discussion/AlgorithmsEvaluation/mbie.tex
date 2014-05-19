@@ -6,6 +6,9 @@ In the graphs for MBIE there are several ``dips'' in performance as for example 
 \paragraph{Realistic MBIE and original MBIE}
 The realistic version of MBIE outperforms the original MBIE in every test. This is probably explained by the fact that the state that is the easiest to arrive at is the one that gives the greatest reward (see section \ref{sec:e3_factored_discussion}). Since the realistic version of MBIE considers states known and thus evaluates them  realistically rather than optimistically much sooner than the original version of MBIE, it spends much less time exploring unknown states, which are bound to give lower rewards than the easier-explored states. 
 
+\paragraph{Impact of planning-frequency}
+A factor to be considered when viewing the results is the impact of the frequency of planning. For example when looking at large state spaces in MBIE (both versions) planning is only performed when the sample size has increased by 50\%. This is quite infrequent when viewing our tests of 100 episodes of 100 samples per episode, resulting in many episodes using the same policy and making it harder to deduce improvement over time as they come in discrete intervals rather then continiously. This issue does not arise in DBN-\etre\ which does planning continiously when required.    
+
 %utforska runt "nya" outforskade states
 
 % Formen annorlunda än 
