@@ -8,10 +8,9 @@ expected reward in the MDP) is denoted by $*$. The rest of this section is
 describes some basic algorithms for solving, that is to say finding an optimal
 policy, in an MDP.
 
-
 \subsection{Value functions}
 
-To solve an MDP most algorithms make uses an estimation of values of states or
+To solve an MDP most algorithms uses an estimation of values of states or
 actions. Two value functions are usually defined, the state-value function $V :
 S \to \mathbb R$ and the state-action-value function $Q : S \times A \to
 \mathbb R$. As the names implies $V$ signifies how good a state is, while $Q$
@@ -21,6 +20,11 @@ policy $\pi$ thereafter. The state-action-value function $Q^\pi(s, a)$ returns
 the expected value when starting in state $s$ and taking action $a$ and
 thereafter following policy $\pi$. The value functions for the optimal policy
 are denoted by $V^*(s)$ and $Q^*(s, a)$. 
+
+\begin{align}
+\label{equation:v_finite}
+V^\pi(s) = \mathbb{E} \{ \sum_{k=0}^{T=k} r_{t+k} | S_t = S_\pi \}
+\end{align}
 
 Both $V^\pi$ and $Q^\pi$ can be estimated from experience. This can be done by
 maintaining the average of the rewards that have followed each state when
