@@ -1,13 +1,12 @@
 \subsection{DBN-\etre\ vs MBIE \note{N}}
-\todo[inline]{Perhaps belongs in conclusion?}
-
 An expectation on both agents is that they should converge on optimal behavior
 as $t$ goes to infinity. However, it is clear from the results presented in
 chapter \ref{ch:results} that neither version of the MBIE agent reaches the
 same level of performance as the DBN-\etre\ agent. In the smaller problem as
 seen for example in figure~\ref{fig:tests1}b the diffrence is not all that
-diffrent between DBN-\etre\ agent and the realistic MBIE. Nevertheless, it is
-still clear that DBN-\etre\ is far superior in finding the converging policy.
+diffrent between DBN-\etre\ agent and the realistic MBIE. 
+
+Nevertheless, it isstill clear that DBN-\etre\ is far superior in finding the converging policy.
 Previous studies have been concluded as a comparisson regarding the original
 \etre\ algorithm and MBIE, in \textcite{strehl2004empirical} that MBIE
 outperforms \etre\ in their testing environments. The results in this thesis
@@ -15,23 +14,26 @@ utilized a heavily optimized version of the original \etre\ agent using
 factored representation and the results speak for themselfs mentioned earlier
 in this report. 
 
-\paragraph{Unfair comparisons}
-
-In one sense, the comparison between our implementations of MBIE and DBN-\etre\
-are not very fair. The DBN-\etre\ implementation has been heavily optimized to
-work with factored MDPs and the invasive species environment in particular,
-whereas the MBIE implementation is much more generalized. The discussions
-regarding the generality of the agents in furher continued in section
-\ref{sec:impact_of_one_env}. However, as mentioned in the last paragraph of
+However, as mentioned in the last paragraph of
 section \ref{sec:e3_factored_discussion} when the structure of the underlying
 MDP the benefits of using a factored representations provides a big advantage
 as seen in the figures in chapter \ref{ch:results}. This also increases the
 responsibility on the designer of the factored representation and if done in
 the wrong way it will prove to become a bottleneck instead of a performance
-increase.
+increase. 
+
+test environments are not factored, name them.
+a good model > a good algorithm
+
+\paragraph{Unfair comparisons}
+In one sense, the comparison between our implementations of MBIE and DBN-\etre\
+are not very fair. The DBN-\etre\ implementation has been heavily optimized to
+work with factored MDPs and the invasive species environment in particular,
+whereas the MBIE implementation is much more generalized. The discussions
+regarding the generality of the agents in furher continued in section
+\ref{sec:impact_of_one_env}. 
 
 \paragraph{Large state spaces}
-
 When the number of states are increased it is clear that the algorithms still
 work. Comparing the 4 reaches and 3 habitats per reach case seen in
 figure~\ref{fig:tests3}a with the 5 reaches and 3 habitats per reach case seen
@@ -49,10 +51,10 @@ version, while in larger state spaces both versions will prioritise unknown
 states.
 
 The DBN-\etre\ algorithm successfully deals with large state spaces. DBN-\etre\
-utilizes a factored approach in representing transition probabilities, this
-allows the algorithm to learn about the invironment quicker whereas a non
-factored approach would struggle to learn the transition probabilities. This
-can be seen in the result where the DBN-\etre\ algorithm quickly knows enough
-to start exploiting. Furthermore, using a factored approach to policy
-calculation allows quick policy calculations making the algorithm fast to run
-in large state spaces.
+utilizes a factored approach in representing transition probabilities, which
+allows the algorithm to learn about the environment quicker whereas a
+non-factored approach would struggle to learn the transition probabilities.
+This can be seen in the result where the DBN-\etre\ algorithm quickly knows
+enough to start exploiting even in cases such as figure~\ref{fig:5r3h}.
+Furthermore, using a factored approach to policy calculation allows quick
+policy calculations making the algorithm fast to run in large state spaces.

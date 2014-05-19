@@ -23,12 +23,16 @@ Q_{upper} (s, a) = & R(s, a) + \nonumber \\
 & \operatorname*{max}_{\tilde{P}(s, a)\in CI(P(s, a), \delta_1)} \gamma \sum_{s'} \tilde{P}(s'|s, a)\operatorname*{max}_{a'} Q_{upper}(s', a')
 \end{align}
 
+\begin{equation}
+\label{equation:balls_of_steels}
+CI\left(\hat{P} \left| N(s, a), \delta_1\right.\right)  = \left\{\tilde{P} \left| \|\tilde{P} - \hat{P}\|_1 \le \omega(N(s,a), \delta)\right.\right\}
+\end{equation}
 
-To efficiently calculate the correct expected maximum Q-values in equation
-\eqref{equation:q_upper}, a method is used that generates a distribution of the
-transition probabilities $\tilde{P}$ that maximizes the sum in the equation
-\parencite{Strehl20081309}. This algorithm is referred to as Compute$\tilde{P}$
-in this report.
+To efficiently calculate the correct expected maximum Q-values in
+equation~\eqref{equation:q_upper}, a method is used that generates a
+distribution of the transition probabilities $\tilde{P}$ that maximizes the sum
+in the equation \parencite{Strehl20081309}. This algorithm is referred to as
+Compute$\tilde{P}$ in this report.
 
 \subsection{Compute$\tilde{P}$, optimistic estimations of transition probabilities}
 
@@ -100,12 +104,5 @@ of the maximum likelihood estimate for P \parencite{dietterich2013pac}. This
 means that with probability $1-\delta$, the actual transition probabilties are
 between the observed probabilities and the probabilities returned by
 Compute$\tilde{P}$.
-
-\todo{Is the last sentence correct?}
-
-\begin{equation}
-\label{equation:balls_of_steels}
-CI(\hat{P} | N(s, a), \delta_1)  = \left\{\tilde{P} \left| \|\tilde{P} - \hat{P}\|_1 \le \omega(N(s,a), \delta)\right.\right\}
-\end{equation}
 
 \label{goto}
