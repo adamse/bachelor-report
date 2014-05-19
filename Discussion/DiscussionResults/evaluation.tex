@@ -1,23 +1,18 @@
 \subsection{Testing methodology}
 
-Evaluating agents is hard due to the process of chosing appropriate parameters
+Evaluating agents is hard due to the process of choosing appropriate parameters
 for both the algorithm and the environment. For example it is uncertain how
-much the paramaters for the algorithms affect the outcome of the experiment and
+much the parameters for the algorithms affect the outcome of the experiment and
 trying out all possible combination is not feasible within the scope of this
 thesis. However, a possible solution for this problem is to derive the optimal
 paramaters using mathmatical proofs.
 
-The same problem appears when chosing the parameters for the invasive species
-environment. The obvious problem is if the paramaters were chosen diffrently
-would the DBN-\etre\ algorithm perform in the same way or if the optimizations
-discussed in section \ref{sec:e3_factored_discussion} would not perform in
+The same problem appears when choosing the parameters for the invasive species
+environment. The obvious question is whether a different choice of paramater values 
+would cause the DBN-\etre\ algorithm to perform in the same way or if the optimizations
+discussed in section \ref{sec:e3_factored_discussion} would not work in
 another setting. Nevertheless, with the MBIE algorithm there is a greater
-probability that the results will be comparable to the results collected.
+probability that the results will be comparable to the results described here.
 
-The last potential issue of the evaluation is a rather complex issue. Is the
-policy the agents finds an optimal policy for the environment?  When the
-number of habitats and reaches in the invasive species environment increases it
-becomes impossible to check manually of the policy computed by the algorithm is
-correct. \textcite{dietterich2013pac} mentions that they are uncertain if
-their algorithm achieves an optimal solution and this should be taken into
-consideration when evaluating the agents in this thesis.
+The last potential issue of the evaluation is a rather complex issue. Is the solution that the agents find really an optimal solution for the problem environment? When the number of habitats and reaches increases it becomes impossible to check manually if the policy computed by the algorithm is correct. This may be a common problem when evaluating reinforcement learning algorithms; as \textcite{dietterich2013pac} mention in their report, they too are uncertain regarding the fact that their implementation achieves an optimal solution. 
+
