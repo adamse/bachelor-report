@@ -1,10 +1,24 @@
 \subsection{Our contribution}
-\paragraph{Factored additions to \etre}
+%\paragraph{Factored additions to \etre}
+\label{sec:e3_our_contribution}
 \label{sec:factored_e3}
 
-The \etre\ algorithm does not exploit that the underlying Markov Decision Process may be structured in a way that allows certain optimizations. Therefore \etre\ has a running time that scales polynomially with the number of states in the MDP. However, by using a factored approach for the problem, improvements can be made to the running time. By factoring the problem as a dynamic Bayesian network, the running time will scale with the number of random variables in the underlying DBN instead for the number of states \parencite{kearns1999efficient}. 
+The \etre\ algorithm does not exploit that the underlying Markov Decision
+Process may be structured in a way that allows certain optimizations. Therefore
+\etre\ has a running time that scales polynomially with the number of states in
+the MDP. However, by using a factored approach for the problem, improvements
+can be made to the running time. By factoring the problem as a dynamic Bayesian
+network, the running time will scale with the number of random variables in the
+underlying DBN instead for the number of states
+\parencite{kearns1999efficient}. 
 
-When using a factored representation some changes to the original algorithm are required to make it compatible. One issue that has to be solved is how to perform  planning with the new representation. This thesis a modified version of value iteration was used for planning and it is described later in this section. In section \ref{sec:better_planing_algos} there are other methods presented.
+When using a factored representation some changes to the original algorithm are
+required to make it compatible. One issue that has to be solved is how to
+perform  planning with the new representation. This thesis a modified version
+of value iteration was used for planning and it is described later in this
+section. In section \ref{sec:better_planing_algos} there are other methods
+presented.
+
 
 \paragraph{Dynamic Bayesian network structure}
 
@@ -23,6 +37,7 @@ transition probabilities as a dynamic Bayesian network, where one would have a
 small transition probability table for each of the reaches in the MDP, instead
 of a large table for the transitions for the whole states.
 
+
 \paragraph{Planning in dynamic Bayesian networks}
 
 The DBN-\etre\ algorithm does not in itself define what algorithm should be
@@ -30,10 +45,19 @@ used for planning when the MDP is structured as a DBN
 \parencite{kearns1999efficient}. It considers planning a black box, leaving the
 choice of planning algorithm to the implementers. 
 
-Value iteration can be done with a factored representation of an MDP in a fairly straightforward manner. The same equations that normal value iteration (section~\ref{sec:valueiteration}) is based on can be used when the MDP is factored too. The only difference is that in order to calculate the probability of a state transition, $p(s'| a, s)$ one has to find the product of all the partial transitions,
+Value iteration can be done with a factored representation of an MDP in a
+fairly straightforward manner. The same equations that normal value iteration
+(section~\ref{sec:valueiteration}) is based on can be used when the MDP is
+factored too. The only difference is that in order to calculate the probability
+of a state transition, $P(s'| a, s)$ one has to find the product of all the
+partial transitions,
 \begin{equation}
-\prod\limits _{i} p(s_i' | a, s_{pa(i)})
+  \prod\limits _{i} P\left(s_i' | a, pa(s_i)\right)
 \end{equation}
-where $i$ ranges over all partial states and $s_{pa(i)}$ is the setting of the partial states that have an influence on the value of $s_i'$. 
+where $i$ ranges over all partial states and $pa(s_i)$ is the setting of the
+parents of the partial state $s_i$.
 
-When an MDP has this structure, observations of partial transitions can be pooled together when the state variables are part of similar structures in the MDP. In the version of DBN-\etre\ described here, all state variables that have the same number of parent variables have their observations pooled together. 
+When an MDP has this structure, observations of partial transitions can be
+pooled together when the state variables are part of similar structures in the
+MDP. In the version of DBN-\etre\ described here, all state variables that have
+the same number of parent variables have their observations pooled together. 
