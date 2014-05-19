@@ -5,6 +5,16 @@ Two ways to separate the representations of an MDP is extensional or factored re
 The most straightforward way to model an MDP is called extensional representation, where the set of states and actions are enumerated directly. It is also commonly refered to as an explicit representation and closely mirrors the definition we have used so far in the report when discussing the abstract view of an MDP \parencite{dean1999descision}.
 
 \paragraph{Factored representation} 
-A factored representation of the states of an MDP often results in an more compact way of describing the set of states. Certain properties or features of the states are used to categorize the states into different sets. Then one can treat all the members of the same set in the same manner. Which properties or features are used is chosen by the algorithm designer, to fit the environment.
 
-When the MDP is factored, it enables a factored representation of rewards, actions and other components of the MDP as well. When using a factored action representation, an action can be taken based on specific state features instead of on the whole state. If the individual actions affect relativity few features or if the effects contain regularities then using a factored representation can result in compact representations of actions \parencite{dean1999descision}. 
+A factored representation of the states of an MDP often results in an more
+compact way of describing the set of states. Certain properties or features of
+the states are used to categorize the states into different sets. Then one can
+treat all the members of the same set in the same manner. Which properties or
+features are used is chosen by the algorithm designer, to fit the environment.
+
+When the MDP is factored, it enables factored representations of states,
+actions and other components of the MDP as well. When using a factored action
+representation, an action can be taken based on specific state features instead
+of on the whole state. If the individual actions affect relativity few features
+or if the effects contain regularities then using a factored representation can
+result in compact representations of actions \parencite{dean1999descision}. 
