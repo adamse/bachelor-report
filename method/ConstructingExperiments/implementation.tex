@@ -19,6 +19,7 @@ that were used for this purpose.
 
 \subsection{GridWorld}
 \label{sec:intro_grid_world}
+
 The GridWorld environment was implemented to easily be able to verify the
 correctness of the MBIE algorithm. It consists of a grid of twelve squares with
 one blocked square, one starting square, one winning square, one losing square and
@@ -30,11 +31,11 @@ probability to fail and 10\% to go sideways.
 
 \subsection{Network simulator}
 
-A simple computer network simulation was implemented as a simple test for
-the \etre\ algorithm. In this environment, the agent tries to keep a network of
-computers up and running. All computers start in the running state, but there
-is a chance that they randomly stop working. If a computer is down, it has a
-chance to cause other computers connected to it to also fail. In each time
-step, the agent chooses one computer to restart, which with 100 percent
-probability will be in working condition in the next time step. The agent is
-rewarded for each computer in the running state after each time step. 
+A simple computer network simulation was implemented verify the behavior of an
+early version of \etre\ algorithm. In this environment, the agent tries to keep
+a network of computers up and running. All computers start in the running
+state, but there is a chance that they randomly stop working. If a computer is
+down, it has a chance to cause other computers connected to it to also fail. In
+each time step, the agent chooses one computer to restart, which with 100
+percent probability will be in working condition in the next time step. The
+agent is rewarded for each computer in the running state after each time step. 
