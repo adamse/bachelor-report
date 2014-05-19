@@ -99,6 +99,7 @@
 \newif\if@cover
 \newif\if@draft
 \newif\if@gfivepaper
+\newif\if@chapters
 
 \@universityfalse
 \@bachelorsfalse
@@ -147,10 +148,10 @@
 
 % Makes the chapters act like a big section
 \RequirePackage{titlesec}
-\titleclass{\chapter}{straight}
-\newcommand{\chapterbreak}{}
-\titleformat{\chapter}[hang]{\bfseries\LARGE}{\thechapter\quad}{0em}{}
-\titlespacing*{\chapter}{0pt}{3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}
+%\titleclass{\chapter}{straight}
+%\newcommand{\chapterbreak}{}
+%\titleformat{\chapter}[hang]{\bfseries\LARGE}{\thechapter\quad}{0em}{}
+%\titlespacing*{\chapter}{0pt}{3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}
 
 % Parts should start a new right side page;
 \titleclass{\part}{straight}
