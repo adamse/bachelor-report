@@ -26,6 +26,11 @@ are denoted by $V^*(s)$ and $Q^*(s, a)$.
 V^\pi(s) = \mathbb{E} \{ \sum_{k=0}^{T=k} r_{t+k} | S_t = S_\pi \}
 \end{align}
 
+\begin{align}
+\label{equation:v_infinite}
+V^\pi(s)_8 = \mathbb{E} \{ \sum_{t=0}^\inf r_{t}\gamma^t | S_0 = S,\pi \}
+\end{align}
+
 Both $V^\pi$ and $Q^\pi$ can be estimated from experience. This can be done by
 maintaining the average of the rewards that have followed each state when
 following the policy $\pi$. When the number of times the state has been
