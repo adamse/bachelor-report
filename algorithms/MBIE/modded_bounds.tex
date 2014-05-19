@@ -11,15 +11,20 @@ then using these converged values to update V-tables, a considerable number of
 computations. So instead of planning after every action taken, the algorithm
 only performs planning and updates the policy at some given interval. 
 
-A way to do this that we have used is to only perform an update when the
-number of times a specific state-action pair has been visited has doubled. This is done for small variants of the invasive species environment. For
-large variants we perform planning when
-the total number of actions taken has been multiplied by 1.5. A large variant is defined as when the number of state variables exceeds 9.The number 9 was determinde by running some preliminary tests and choosing a number giving a reasonable run time.
+A way to do this that we have used is to only perform an update when the number
+of times a specific state-action pair has been visited has doubled. This is
+done for small variants of the invasive species environment. For large variants
+we perform planning when the total number of actions taken has been multiplied
+by 1.5. A large variant is defined as when the number of state variables
+exceeds 9. 9 was determined by running some preliminary tests and
+choosing a number giving a reasonable run time.
 
-\paragraph{Optimizing bounds} Another optimization that can be performed is that the value $\Delta \omega$ in
-equation~\eqref{equation:xi} can be tweaked to fit the environment that the agent
-is used with. Equation \eqref{equation:xi} gives bounds for which it can be
-proved that the method always converges to an optimal policy. In practice,
+\paragraph{Optimizing bounds}
+
+Another optimization that can be performed is that the value $\Delta \omega$ in
+equation~\eqref{equation:xi} can be tweaked to fit the environment that the
+agent is used with. Equation \eqref{equation:xi} gives bounds for which it can
+be proved that the method always converges to an optimal policy. In practice,
 however, this value can be reduced by quite a bit in order to speed up the rate
 at which the agent considers state-action pairs known. 
 

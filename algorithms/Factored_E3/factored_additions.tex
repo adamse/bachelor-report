@@ -6,7 +6,7 @@ The \etre\ algorithm does not exploit that the underlying Markov Decision
 Process may be structured in a way that allows certain optimizations. Therefore
 \etre\ has a running time that scales polynomially with the number of states in
 the MDP. However, by using a factored approach for the problem, improvements
-can be made to the running time. By factoring the problem as a dynamic Bayesian
+can be made to the running time. By factoring the problem as a dynamic bayesian
 network, the running time will scale with the number of random variables in the
 underlying DBN instead for the number of states
 \parencite{kearns1999efficient}. 
@@ -19,7 +19,7 @@ section. In section \ref{sec:better_planing_algos} there are other methods
 presented.
 
 
-\paragraph{Dynamic Bayesian network structure}
+\paragraph{Dynamic bayesian network structure}
 
 Assume that the states of an MDP each are divided into several variables. For
 instance, the invasive species MDP described in section
@@ -32,6 +32,6 @@ its parents.
 
 An MDP that follows the description in the previous paragraph is described as
 factored. With the assumption of a factored MDP, it is possible to describe its
-transition probabilities as a dynamic Bayesian network, where one would have a
+transition probabilities as a dynamic bayesian network, where one would have a
 small transition probability table for each of the reaches in the MDP, instead
 of a large table for the transitions for the whole states.
