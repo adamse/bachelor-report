@@ -10,10 +10,10 @@ policy, in an MDP.
 
 \subsection{Value functions}
 
-To solve an MDP most algorithms uses an estimation of values of states or
+To solve an MDP most algorithms use an estimation of values of states or
 actions. Two value functions are usually defined, the state-value function $V :
 S \to \mathbb R$ and the state-action-value function $Q : S \times A \to
-\mathbb R$. As the names implies $V$ signifies how good a state is, while $Q$
+\mathbb R$. As the names imply, $V$ signifies how good a state is, while $Q$
 signifies how good an action in a state is. The state-value function,
 $V^\pi(s)$, returns the expected value when starting in state $s$ and following
 policy $\pi$ thereafter. Equations \eqref{equation:v_finite} and \eqref{equation:v_infinite} show the equations for the state-value function for a finite time horizon and an infinite, discounted, time horizon respectively. In \eqref{equation:v_infinite}, $\gamma$ is the discount factor, a value between 0 and 1 which describes how fast the value of expected future rewards decay as one looks further into the future. The state-action-value function $Q^\pi(s, a)$ returns
