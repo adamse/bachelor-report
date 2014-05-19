@@ -1,26 +1,42 @@
-\subsection{DBN-\etre\ vs MBIE \note{N}}
+\subsection{DBN-\etre\ vs MBIE}
 \label{sec:dbn_vs_mbie}
-An expectation on both agents is that they should converge on optimal behavior
-as $t$ goes to infinity. However, it is clear from the results presented in
-chapter \ref{ch:results} that neither version of the MBIE agent reaches the
-same level of performance as the DBN-\etre\ agent. In the smaller problem as
-seen for example in figure~\ref{fig:tests1}b the diffrence is not all that
-diffrent between DBN-\etre\ agent and the realistic MBIE. Nevertheless, it is still clear that DBN-\etre\ is far superior in finding the converging policy.
 
-\textcite{strehl2004empirical} tested the performance of the MBIE algorithm along with the \etre\ algorithm in two non-factored environments, RiverSvim and Sixarms. This study clearly concludes that the MBIE outperforms \etre\ in both of the environments, a result completely opposite in this study when introducing the factored representation to the \etre\ algorithm's model. Due to the significant performance increase in realtion to the non-factored version of the \etre\ agent and thereby outperforming the MBIE algorithm, that a good representation of the model as described in the last paragraph of section \ref{sec:e3_factored_discussion} is more important than a good(in relation to the previous study) algorithm.  
+An expectation on both agents is that they should converge to a near optimal
+behavior as time goes to infinity. However, it is clear from the results
+presented in chapter \ref{ch:results} that neither version of the MBIE agent
+reaches the same level of performance as the DBN-\etre\ agent in the tests we
+performed. In the smaller problem as seen for example in
+figure~\ref{fig:tests1}b the diffrence is not large between DBN-\etre\ agent
+and the realistic MBIE. Nevertheless, it is still clear that DBN-\etre\ is far
+superior in finding the policy.
 
-However, due to the drawback as discussed ealier in section(\todo[]{where do we confess?}) it was not able to implement the underlying structure as a dynamic Bayesian network for MBIE making it impossible to verify this conslusion regarding that a good model outperforms a good algorithm. Along with the fact that in \textcite{strehl2004empirical} the models used did not enable the algorithms to use factored representations.
+\textcite{strehl2004empirical} tested the performance of the MBIE algorithm
+along with the \etre\ algorithm in two non-factored environments, RiverSvim and
+Sixarms. \textcite{strehl2004empirical} concludes that the MBIE outperforms
+\etre\ in both of the environments. This thesis utilizes a factored environment
+for tests and thus the DBN-\etre\ algorithm outperforms the non-factored MBIE
+algorithm. Due to the significant performance increase in relation to the
+non-factored version of the \etre\ algorithm the DBN-\etre\ outperforms the
+MBIE algorithm.
 
+As discussed in section~\ref{sec:factored_mbie} we did not make any factored
+additions to the MBIE algorithm and it is uncertain wether the DBN-\etre\
+algorithm would retain its superior performace.
 
 \paragraph{Unfair comparisons}
-In one sense, the comparison between our implementations of MBIE and DBN-\etre\
-are not very fair. The DBN-\etre\ implementation has been heavily optimized to
-work with factored MDPs and the invasive species environment in particular,
-whereas the MBIE implementation is much more generalized. The discussions
-regarding the generality of the agents in furher continued in section
-\ref{sec:impact_of_one_env}. 
+
+The comparison between our implementations of MBIE and DBN-\etre\ are not very
+fair. The DBN-\etre\ implementation has been heavily optimized to work with
+factored MDPs and the invasive species environment in particular, whereas the
+MBIE implementation is much more generalized. The discussions regarding the
+generality of the agents in furher continued in section
+\ref{sec:impact_of_one_env}. To make a more nuanced comparison between MBIE and
+DBN-\etre\ one could use smaller non-factored environments as well as the
+larger factored invasive species environment.
+
 
 \paragraph{Large state spaces}
+
 When the number of states are increased it is clear that the algorithms still
 work. Comparing the 4 reaches and 3 habitats per reach case seen in
 figure~\ref{fig:tests3}a with the 5 reaches and 3 habitats per reach case seen
