@@ -1,10 +1,15 @@
-\documentclass[]{report}
+\RequirePackage[l2tabu,orthodox]{nag}
+
+\documentclass[bachelors,a4paper]{chalmers-thesis}
+
+\usepackage[swedish, english]{babel}
 
 \usepackage[utf8]{inputenc}
 \usepackage{comment}
 \usepackage{color}
 \usepackage{todonotes}
 \usepackage{hyperref}
+
 
 % To be able to include pdfs in the document
 \usepackage{pdfpages}
@@ -41,7 +46,24 @@
 \usepackage{algpseudocode}
 
 \title{Reinforcement learning}
-\date{June 2014}
+\subtitle{A comparison of agents in discrete environments with large discrete state spaces using reinforcement learning.}
+\author{%
+Johan Andersson \and
+Emil Kristiansson \and
+Joakim Persson \and
+Adam Sandberg Eriksson \and
+Daniel Toom \and
+Joppe Widstam
+}
+\thesisin{Computer Science}
+\department{Department of Computer Science and Engineering}
+\reportno{2014:05}
+\copyrightyear{2014}
+\keywords{Reinforcement learning, Artificial intelligence}
+
+% Abstracts
+\firstabstract{\input{abstract.tex}}
+\secondabstract{swedish}{\input{abstract_swedish.tex}}
 
 % Useful commands
 \newcommand{\note}[1]{\textcolor{red}{#1}}
@@ -49,13 +71,34 @@
 
 \begin{document}
 
-\input{title.tex}
+\makecoverpage
+\maketitlepage
+\makeprintinfopage
 
-\input{abstract.tex}
+\newpage
+
+\pagenumbering{roman}
+\pagestyle{plain}
+
+\makeabstractpage
+\makesecondabstractpage
+
+\todo[inline]{Make sure the title and text of each section match}
+\todo[inline]{Look over the size of all the paragraphs in the world)}
+\todo[inline]{Be consistent with reinforcement learning (not Reinforcement Learning, RL)}
+\todo[inline]{Be consistent in introductions using references to subsections}
+\todo[inline]{Check see section vs section, and same w figure}
+\todo[inline]{Tamarisk -> tamarix}
+
+\newpage
+
+\listoftodos
 
 \tableofcontents
 
-\listoftodos
+\newpage
+
+\pagenumbering{arabic}
 
 \input{Introduction/main.tex}
 \input{Technical_Background/main.tex}
