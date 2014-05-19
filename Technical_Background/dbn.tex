@@ -2,7 +2,7 @@
 \label{sec:dbn}
 
 A bayesian network is a graphical model that represents random variables and
-their dependencies on eachother (see figure~\ref{fig:bn}). Each random variable
+their dependencies on each other (see figure~\ref{fig:bn}). Each random variable
 corresponds to a node and a directed edge represents a dependency between the
 target and the source node. \parencite{heckerman1998tutorial}. For instance in
 figure~\ref{fig:bn}, $Z$ depends on the setting of $X$ and $Y$. 
@@ -16,7 +16,7 @@ figure~\ref{fig:bn}, $Z$ depends on the setting of $X$ and $Y$.
 
 A dynamic bayesian network (DBN) is a bayesian network where the random
 variables are allowed to depend on prior settings of the same random variables
-as well as eachother, see figure~\ref{fig:dbn}.
+as well as each other, see figure~\ref{fig:dbn}.
 
 \begin{figure}[H]
     \centering
@@ -32,7 +32,7 @@ Y\}$ and in figure~\ref{fig:dbn} the parents of $Y$ are $pa(Y_{t+1}) = \{Y_t,
 X_t\}$.
 
 States in an MDP can be factored into several state variables representing
-different features of the state. Using this factorisation transition
+different features of the state. Using this factorization transition
 probabilities can be represented by a set of bayesian networks, one network for
 each possible action. 
 
