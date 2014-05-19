@@ -1,21 +1,17 @@
 \section{Algorithm implementation}
 \label{sec:implementation}
 
-The experiment utilizes RL-Glue (section \ref{sec:rl_glue}) for connecting the
-agents and environment for the experiment. Thereby using the pre-defined
-specifications of RL-Glue when developing the agents, improving their
-re-usability. 
+In the implementations of our two algorithm we made extensions to the
+algorithms as they were specified.  The experiment utilized RL-Glue
+(section~\ref{sec:rl_glue}) to connect the agents and environment.  To verify
+the behavior of our agents we utilized smaller environments were the correct
+operation is either easy to derive or obvious from inspection. By starting with
+smaller problems and using an iterative approach it was possible to identify
+bottlenecks in our implementations and correct possible errors early.
 
-The most complex phase of constructing the agents was the verification of their
-behaviour. The difficulty of this is correlated with the size of the problem
-domain and for a smaller problem the behaviour is easier to verify. For this 
-environments were constructed specifically for testing the agents, an
-important design consideration was to make sure that the correct results were
-easy to either derive or were obvious from inspection. By starting with smaller
-problems and using an iterative approach it was possible to identify
-bottlenecks in our implementations and correct possible errors early. The two
-following sections describe the GridWorld and network simulator enviornments
-that were used for this purpose. 
+\input{algorithms/MBIE/modded_bounds}
+
+\input{method/ConstructingExperiments/contributionse3}
 
 \subsection{GridWorld}
 \label{sec:intro_grid_world}
@@ -39,8 +35,3 @@ down, it has a chance to cause other computers connected to it to also fail. In
 each time step, the agent chooses one computer to restart, which with 100
 percent probability will be in working condition in the next time step. The
 agent is rewarded for each computer in the running state after each time step. 
-
-
-\input{algorithms/MBIE/modded_bounds}
-
-\input{method/ConstructingExperiments/contributionse3}
