@@ -1,8 +1,0 @@
-\subsection{Constructing Experiments \note{Ny text}}
-\label{sec:constructing_experiments}
-\todo[inline]{Konkretisera plus exempel}
-When it comes to constructing experiments, first of all, the tests of the algorithms require an environment for them to interact with. As mentioned in the limitations(\ref{sec:limitations}) for the project, the Invasive Species environment was selected to evaluate the agents. Nevertheless, instead of starting with an environment with a large state space, the first environments that were tried represented problems with relatively small state spaces. By starting with smaller problems and using an iterative approach it was possible to identify  bottlenecks in our implementations and correct possible errors earlier.
-
-The second part of constructing a good experiment is making sure that the result of the experiment are easily verifiable. The difficulty of this is correlated with the size of the problem domain and for a smaller problem the results are much easier to verify. For the environments constructed specifically for testing the agents iteratively, a main part of design was to make sure that the correct results were easy to either derive or were obvious from inspection. 
-
-Thirdly, results achieved by different agents should be easily comparable. By taking advantage of the structure of RL-Glue (section \ref{sec:glue}), it became easy to construct separate modules in order to easily switch between different agents using the same environment. This reduced the work needed to create experiments with the same environment, only switch the agent interacting with it. 
