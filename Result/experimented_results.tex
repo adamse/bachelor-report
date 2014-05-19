@@ -39,8 +39,19 @@ In figures~\ref{fig:tests1}, \ref{fig:tests2} and \ref{fig:tests3} we have test 
     \label{fig:tests3}
 \end{figure}
 
-The agent learns for 100 episodes with 100 samples per episode, other parameters are specified in section~\ref{sec:test_spec}. The invasive species environment associates a certain cost with each state and action, thus the reward is always negative. In each test the reward varies over time for the MBIE agent, the realistic MBIE agent and the DBN-\etre\ agent.
+The agent learns for 100 episodes with 100 samples per episode, other
+parameters are specified in section~\ref{sec:test_spec}. The invasive species
+environment associates a certain cost with each state and action, thus the
+reward is always negative.
 
-With smaller state spaces (see figure~\ref{fig:3r3h}, \ref{fig:3r2h} and \ref{fig:5r1h}) we can see that the realistic MBIE agent outperforms the proper MBIE agent and comes close to the DBN-\etre\ agent. In the tests where the state space is larger (see figure~\ref{fig:5r3h}, \ref{fig:10r1h} and \ref{fig:4r3h}) proper MBIE and realistic MBIE are very close to each other in performance while the DBN-\etre\ agent outperforms both. The realistic MBIE algorithm performs better in with smaller state spaces due to more states becoming known quicker and thus having their true value.
+With smaller state spaces (see figure~\ref{fig:3r3h}, \ref{fig:3r2h} and
+\ref{fig:5r1h}) we can see that the realistic MBIE agent outperforms the
+original MBIE agent and comes close to the DBN-\etre\ agent. In the tests where
+the state space is larger (see figure~\ref{fig:5r3h}, \ref{fig:10r1h} and
+\ref{fig:4r3h}) original MBIE and realistic MBIE are very close to each other
+in performance while the DBN-\etre\ agent outperforms both.
 
-In each of the test runs the DBN-\etre\ algorithm exhibits a period of learning that corresponds to exploration (as described in section~\ref{sec:e3}) where the agent has not explored the environment enough and seeks more information. This is apparent in figure~\ref{fig:3r3h}.
+In each of the test runs the DBN-\etre\ algorithm exhibits a period of learning
+that corresponds to exploration (as described in section~\ref{sec:e3}) where
+the agent has not explored the environment enough and seeks more information.
+This is apparent in figure~\ref{fig:3r3h}.
