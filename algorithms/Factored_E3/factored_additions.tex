@@ -2,13 +2,10 @@
 \subsection{Factored additions to \etre}
 \label{sec:factored_e3}
 
-The \etre\ algorithm does not exploit that the underlying Markov Decision
-Process may be structured in a way that allows certain optimizations. Therefore
-\etre\ has a running time that scales polynomially with the number of states in
-the MDP. However, by using a factored approach for the problem, improvements
-can be made to the running time. By factoring the problem as a dynamic bayesian
-network, the running time will scale with the number of random variables in the
-underlying DBN instead for the number of states
+The \etre\ algorithm does not exploit that the underlying Markov decision
+process may be structured in a way that allows certain optimizations. For instance, 
+by factoring the problem as a dynamic bayesian
+network, the running time can be improved dramatically 
 \parencite{kearns1999efficient}. 
 
 When using a factored representation some changes to the original algorithm are
