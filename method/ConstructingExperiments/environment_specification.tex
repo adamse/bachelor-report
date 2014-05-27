@@ -26,9 +26,11 @@ river network is shown.
 \label{fig:river}
 \end{figure}
 
-There are four possible actions (eradicate tamarisks, plant native trees,
-eradicate tamarisks and plant native trees, and finally a wait-and-see action),
-and the agent chooses one of these actions per reach per time step. What
+There are four possible actions (eradicate tamarix trees, plant native trees,
+eradicate tamarix trees and plant native trees and a wait-and-see action),
+and the agent chooses one of these actions for each reach and time step. If the 
+agent chooses to eradicate tamarix trees or plant native trees in a reach, 
+all habitats of that reach are targeted by this action. What
 actions are available to the agent depends on the state of each reach. It is
 always possible to choose the wait-and-see action, but there has to be one
 or more tamarix-invaded habitats in a reach for the eradicate or eradicate and
