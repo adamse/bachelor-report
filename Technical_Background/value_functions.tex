@@ -16,24 +16,36 @@ S \to \mathbb R$ and the state-action-value function $Q : S \times A \to
 \mathbb R$. As the names imply, $V$ signifies how good a state is, while $Q$
 signifies how good an action in a state is. The state-value function,
 $V^\pi(s)$, returns the expected value when starting in state $s$ and following
-policy $\pi$ thereafter. Equations \eqref{equation:v_finite} and
-\eqref{equation:v_infinite} show the equations for the state-value function for
-a finite time horizon and an infinite, discounted, time horizon respectively.
-The state-action-value function $Q^\pi(s, a)$ returns the expected value when
-starting in state $s$ and taking action $a$ and thereafter following policy
-$\pi$. The value functions for the optimal policy are denoted by $V^*(s)$ and
-$Q^*(s, a)$. Formulas for the state-action value functions are analogous to
-those presented for the state value functions
+policy $\pi$ thereafter. The state-action-value function $Q^\pi(s, a)$ returns
+the expected value when starting in state $s$ and taking action $a$ and
+thereafter following policy $\pi$. The value functions for the optimal policy
+are denoted by $V^*(s)$ and $Q^*(s, a)$. Formulas for the state-action value
+functions are analogous to those presented for the state value functions
 \parencite{barto1998reinforcement}. 
+
+Equations \eqref{equation:v_finite} and \eqref{equation:v_infinite} show the
+equations for the state-value function for a finite time horizon and an
+infinite, discounted, time horizon respectively. The future states, $s_t$, 
+are stochastically distributed according to the transition probabilities
+of the MDP (see section~\ref{sec:mdps}).
+
+$r_t$, the reward is
+distributed over the transition probabilities of the MDP.
 
 \begin{align}
 \label{equation:v_finite}
-V_t^\pi(s) = \mathbb{E} \left\{\left. \sum^{T}_{k=0} r_{t+k} \right\vert s_t = s, \pi \right\}
+V_t^\pi(s) = \mathbb{E} \left\{
+  \left. \sum^{T}_{k=0} R(s_{t+k+1})
+  \right\vert s_t = s, \pi
+\right\}
 \end{align}
 
 \begin{align}
 \label{equation:v_infinite}
-V_{0}^\pi(s) = \mathbb{E} \left\{\left. \sum_{t=0}^\infty r_{t}\gamma^t \right\vert s_0 = s,\pi \right\}
+V_{t}^\pi(s) = \mathbb{E} \left\{
+  \left. \sum_{k=t}^\infty \gamma^k R(s_{t+k+1})
+  \right\vert s_t = s,\pi
+\right\}
 \end{align}
 
 Both $V^\pi$ and $Q^\pi$ can be estimated from experience. This can be done by
