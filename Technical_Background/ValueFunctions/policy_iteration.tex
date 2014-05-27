@@ -10,21 +10,28 @@ initialization, policy evaluation and policy improvement
 \begin{description}
 \item[Initialization] \hfill \\
     Start with an arbitrary policy $\pi$ and arbitrary value function $V$.
+
 \item[Policy evaluation] \hfill \\
-    Compute an updated value function, $V$, for policy $\pi$ in the MDP using the update rule \eqref{eq:polimpr}.
+  Compute an updated value function, $V$, for policy $\pi$ in the MDP by using
+  the update rule \eqref{eq:vfupdate} until $V$ converges. $\pi(s, a)$ is the probability of
+  action $a$ in state $s$ using policy $\pi$.
+
+\begin{equation} \label{eq:vfupdate}
+  V_{k+1} (s) = \sum_a \pi(s, a) \sum_{s'} P(s, a, s') \left[ R(s, a) + \gamma V_k(s')  \right]
+\end{equation}
+
 \item[Policy improvement] \hfill \\
-    Improve the policy by making it greedy with regard to $V$. This means that the policy will describe the action in each state that maximizes the expected V-value of the following state. 
+  Improve the policy by making it greedy with regard to $V$,
+  equation~\eqref{eq:polimpr}\footnote{$\operatorname*{arg\,max} _a f(a)$ gives
+  the $a$ that maximizes $f(a)$.}. This means that the policy will describe the
+  action in each state that maximizes the expected V-value of the following
+  state. 
+
+\begin{equation} \label{eq:polimpr}
+  \pi_{k+1} (s) = \operatorname*{arg\,max}_a \sum_{s'}P(s, a, s') \left[ R(s, a) + \gamma V_k(s') \right]
+\end{equation}
+
 \item Repeat evaluation and improvement until $\pi$ is stable between two iterations.
 \end{description}
 
-Policy evaluation is carried out using the update rule \eqref{eq:vfupdate} until $V$ converges. 
-Policy improvement uses the update rule \eqref{eq:polimpr}\footnote{$\operatorname*{arg\,max} _a f(a)$ gives the $a$ that maximizes $f(a)$.}.
 
-
-\begin{equation} \label{eq:vfupdate}
-V_{k+1} (s) = \sum_{s'} P(s, a, s') \left[ R(s, s') + \gamma V_k(s')  \right]
-\end{equation}
-
-\begin{equation} \label{eq:polimpr}
-\pi_{k+1} (s) = \operatorname*{arg\,max}_a P(s, a, s') \left[ R(s, s') + \gamma V_k(s') \right]
-\end{equation}
