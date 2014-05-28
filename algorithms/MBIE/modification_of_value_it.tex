@@ -2,7 +2,9 @@
 \subsection{Compute$\tilde{P}$, optimistic estimations of transition probabilities}
 \label{sec:computep}
 
-The first step of the MBIE algorithm is to find optimistic estimations of transition probabilities. Equation \eqref{equation:balls_of_steels} describes, as a set, the confidence interval for the probability distribution of destination states for a certain state-action pair, $(s,a)$. So, the first task of the algorithm is to find the element within this set that is maximally optimistic, meaning that it gives the best value to $(s,a)$ in the following value-iteration step of the MBIE algorithm. In equation \eqref{equation:balls_of_steels}, $\hat{P}$ is the observed probability distribution (treated as a vector) for destination states from $(s,a)$, $N(s,a)$ is the number of times that the state-action pair $(s,a)$ has been observed, $\delta$ is a confidence parameter, $\|x\|_1$ denotes the l1-norm of the vector $x$ and $\omega$ is a value given by \eqref{equation:omega}. The l1-norm is the sum of the absolute value of all elements of a vector. 
+The first step of the MBIE algorithm is to find optimistic estimations of transition probabilities. Equation \eqref{equation:balls_of_steels} describes, as a set, the confidence interval used by MBIE for the probability distribution over destination states when taking action $a$ in state $s$. So, the first task of the algorithm is to find the element within this set that is maximally optimistic, meaning that it gives the best value to $(s,a)$ in the following value-iteration step of the MBIE algorithm. 
+
+In equation \eqref{equation:balls_of_steels}, $\hat{P}$ is the observed probability distribution (treated as a vector) for destination states from $(s,a)$, $N(s,a)$ is the number of times that the state-action pair $(s,a)$ has been observed, $\delta$ is a confidence parameter,  $\omega$ is a value given by \eqref{equation:omega} and $\|x\|_1$ denotes the l1-norm of the vector $x$. The l1-norm is the sum of the absolute value of all elements of a vector. 
 
 \begin{equation}
 \label{equation:balls_of_steels}
@@ -20,14 +22,14 @@ The method for finding the sought element within the set denoted by \eqref{equat
 is refered to as Compute$\tilde{P}$ in this report. 
 The fundamental idea of the Compute$\tilde{P}$ method is that it starts with
 the observed transition probabilities $\hat{P}$ and then it moves probability
-mass from ``bad'' outcomes to ``good'' outcomes and finally returns these new transition probabilites, $\tilde{P}$. 
+mass from ``bad'' outcomes to ``good'' outcomes and finally returns the resulting probability distribution, $\tilde{P}$. 
 
 \paragraph{Initialization} The state transition probability distribution is initialized according to
 \eqref{equation:roof}, which corresponds to the observed probabilities.
 
 \begin{equation}
 \label{equation:roof}
-\tilde{P} := \hat{P} = \frac{N(s,a,s')}{N(s,a)}
+\tilde{P}(s'|s, a) := \hat{P}(s'|s, a) = \frac{N(s,a,s')}{N(s,a)}
 \end{equation}
 
 In \eqref{equation:roof}, $N(s, a)$ is the number of times action $a$ has been taken in
