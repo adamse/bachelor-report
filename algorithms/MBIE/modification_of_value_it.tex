@@ -2,7 +2,7 @@
 \subsection{Compute$\tilde{P}$, optimistic estimations of transition probabilities}
 \label{sec:computep}
 
-The first step of the MBIE algorithm is to find optimistic estimations of transition probabilities. Equation \eqref{equation:balls_of_steels} describes, as a set, the confidence interval used by MBIE for the probability distribution over destination states when taking action $a$ in state $s$. So, the first task of the algorithm is to find the element within this set that is maximally optimistic, meaning that it gives the best value to $(s,a)$ in the following value-iteration step of the MBIE algorithm. 
+The first step of the MBIE algorithm is to find optimistic estimations of transition probabilities. Equation \eqref{equation:balls_of_steels} describes, as a set, the confidence interval (CI) used by MBIE for the probability distribution over destination states when taking action $a$ in state $s$. So, the first task of the algorithm is to find the element within this set that is maximally optimistic, meaning that it gives the best value to $(s,a)$ in the following value-iteration step of the MBIE algorithm. 
 
 In equation \eqref{equation:balls_of_steels}, $\hat{P}$ is the observed probability distribution (treated as a vector) for destination states from $(s,a)$, $N(s,a)$ is the number of times that the state-action pair $(s,a)$ has been observed, $\delta$ is a confidence parameter,  $\omega$ is a value given by \eqref{equation:omega} and $\|x\|_1$ denotes the l1-norm of the vector $x$. The l1-norm is the sum of the absolute value of all elements of a vector. 
 
