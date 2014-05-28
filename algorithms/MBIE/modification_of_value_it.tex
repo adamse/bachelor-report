@@ -1,5 +1,5 @@
 
-\subsection{Compute$\tilde{P}$, optimistic estimations of transition probabilities}
+\subsection{Optimistic estimations of transition probabilities}
 \label{sec:computep}
 
 The first step of the MBIE algorithm is to find optimistic estimations of transition probabilities. Equation \eqref{equation:balls_of_steels} describes, as a set, the confidence interval (CI) used by MBIE for the probability distribution over destination states when taking action $a$ in state $s$. So, the first task of the algorithm is to find the element within this set that is maximally optimistic, meaning that it gives the best value to $(s,a)$ in the following value-iteration step of the MBIE algorithm. 
@@ -16,13 +16,15 @@ CI\left(\hat{P} \left| N(s, a), \delta\right.\right)  = \left\{\tilde{P} \left| 
    \omega(N(s,a),\delta) = {\sqrt{\frac{2|ln(2^{|S|}-2) - ln  \delta |}{N(s,a)}}}
 \end{equation}
 
-Equation \eqref{equation:omega} gives a bound for how much the vector of transition probabilities can be changed from the observed values, while remaining within the confidence interval. In this equation, $|S|$ is the number of states in the MDP and the other variables have the same meaning as in \eqref{equation:balls_of_steels}. For the derivation of this formula, see  \textcite{Strehl20081309}.
+In equation \eqref{equation:omega}, $\omega(N(s,a),\delta)$, gives a bound for how much the vector of transition probabilities can be changed from the observed values, while remaining within the confidence interval. In this equation, $|S|$ is the number of states in the MDP and the other variables have the same meaning as in \eqref{equation:balls_of_steels}. For the derivation of this formula, see  \textcite{Strehl20081309}.
 
+\subsection{Compute$\tilde{P}$}
 The method for finding the sought element within the set denoted by \eqref{equation:balls_of_steels} 
 is refered to as Compute$\tilde{P}$ in this report. 
 The fundamental idea of the Compute$\tilde{P}$ method is that it starts with
 the observed transition probabilities $\hat{P}$ and then it moves probability
 mass from ``bad'' outcomes to ``good'' outcomes and finally returns the resulting probability distribution, $\tilde{P}$. 
+
 
 \paragraph{Initialization} The state transition probability distribution is initialized according to
 \eqref{equation:roof}, which corresponds to the observed probabilities.
@@ -59,7 +61,7 @@ equations \eqref{equation:ptilde_floor} and \eqref{equation:ptilde_roof}.
 
 Since the sum of the probabilities needs to equal one and 
 no single transition probability may fall below zero or exceed one, the probability distribution can only be modified by at most $\xi$, as given by
-equation \eqref{equation:xi}. The variable, $\Delta\omega$, denotes the total mass that can be moved, without $\tilde{P}$ having a lower chance than $1 - \delta$ of being within the confidence interval for the probability distribution. If $\xi$ is less than $\Delta \omega$, new states
+equation \eqref{equation:xi}, where $\Delta\omega = \omega / 2$. The variable $\Delta\omega$ denotes the total mass that can be moved, without $\tilde{P}$ having a lower chance than $1 - \delta$ of being within the confidence interval for the probability distribution. If $\xi$ is less than $\Delta \omega$, new states
 $\overline{s}$ and $\underline{s}$ are found, and probabilities moved until
 mass equal to $\Delta \omega$ has been moved in total or the probability mass has all been moved to an optimal state. 
 
@@ -70,11 +72,6 @@ mass equal to $\Delta \omega$ has been moved in total or the probability mass ha
   , \tilde{P}(\underline{s} | s, a)
   , \Delta \omega 
 \}
-\end{equation}
-
-\begin{equation}
-\label{equation:deomega}
-  \Delta \omega = \frac{\omega}{2}
 \end{equation}
 
 
