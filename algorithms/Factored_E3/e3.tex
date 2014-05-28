@@ -11,7 +11,7 @@ When the agent finds itself in a state that it has not visited a large enough nu
 \paragraph{Exploration}
 When the agent from the balanced wandering phase enters a state that is known, it performs a policy computation to find a policy that maximizes the agent's chance of ending up in an unknown state. 
 
-This exploration policy calculation is performed on an MDP which contains all known states and their experienced transition probabilites. 
+This exploration policy calculation is performed on an MDP which contains all known states and their experienced transition probabilities. 
 All unknown states are gathered in a super-state with transition probability 0 to all known states and 1 to itself. The rewards are set to 0 for known states whereas the reward for the super-state is set to the maximum possible reward. A policy based on this MDP definition will strive to perform actions that reach the super-state, i.e., an unknown state.
 
 If the chance of ending up in the super-state is below a certain threshold, it can be proved that the agent knows enough about the MDP that it is probable that it will be able to calculate a policy that is close to optimal \parencite{kearns2002near}.
