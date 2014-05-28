@@ -2,13 +2,13 @@
 \subsection{Optimistic estimations of transition probabilities}
 \label{sec:computep}
 
-The first step of the MBIE algorithm is to find optimistic estimations of transition probabilities. Equation \eqref{equation:balls_of_steels} describes, as a set, the confidence interval (CI) used by MBIE for the probability distribution over destination states when taking action $a$ in state $s$. So, the first task of the algorithm is to find the element within this set that is maximally optimistic, meaning that it gives the best value to $(s,a)$ in the following value-iteration step of the MBIE algorithm. 
+The first step of the MBIE algorithm is to find optimistic estimations of transition probabilities. Equation \eqref{equation:balls_of_steels} describes, as a set, the confidence interval (CI) used by MBIE for the probability distribution over destination states when taking action $a$ in state $s$. So, the first task of the algorithm is to find the element within this set that is maximally optimistic, meaning that it gives the best value to $(s,a)$ in the following value-iteration step of the MBIE algorithm. A description of how this is done in practice is described in section \ref{sec:ptilde}. 
 
 In equation \eqref{equation:balls_of_steels}, $\hat{P}$ is the observed probability distribution (treated as a vector) for destination states from $(s,a)$, $N(s,a)$ is the number of times that the state-action pair $(s,a)$ has been observed, $\delta$ is a confidence parameter,  $\omega$ is a value given by \eqref{equation:omega} and $\|x\|_1$ denotes the l1-norm of the vector $x$. The l1-norm is the sum of the absolute value of all elements of a vector. 
 
 \begin{equation}
 \label{equation:balls_of_steels}
-CI\left(\hat{P} \left| N(s, a), \delta\right.\right)  = \left\{\tilde{P} \left| \|\tilde{P} - \hat{P}\|_1 \le \omega(N(s,a), \delta)\right.\right\}
+CI\left(\hat{P} \left| N(s, a), \delta\right.\right)  = \left\{\tilde{P} \left| \|\tilde{P} - \hat{P}\|_1 \le \omega(N(s,a), \delta), \|\hat{P}\|_1 = 1, \hat{P}_i \geq 0  \right.\right\}
 \end{equation}
 
 \begin{equation}
@@ -19,6 +19,7 @@ CI\left(\hat{P} \left| N(s, a), \delta\right.\right)  = \left\{\tilde{P} \left| 
 In equation \eqref{equation:omega}, $\omega(N(s,a),\delta)$, gives a bound for how much the vector of transition probabilities can be changed from the observed values, while remaining within the confidence interval. In this equation, $|S|$ is the number of states in the MDP and the other variables have the same meaning as in \eqref{equation:balls_of_steels}. For the derivation of this formula, see  \textcite{Strehl20081309}.
 
 \subsection{Compute$\tilde{P}$}
+\label{sec:ptilde}
 The method for finding the sought element within the set denoted by \eqref{equation:balls_of_steels} 
 is refered to as Compute$\tilde{P}$ in this report. 
 The fundamental idea of the Compute$\tilde{P}$ method is that it starts with
