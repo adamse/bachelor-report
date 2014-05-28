@@ -3,12 +3,11 @@
 \label{sec:mbie_gt}
 
 One problem with the method described above is that probability mass can be
-moved to any outcome state, without any consideration taken as to whether this
+moved to any destination state, without any consideration taken as to whether this
 outcome has ever been observed. \textcite{dietterich2013pac} and the 
 MBIE-algorithm in this thesis make use of an optimization that deals with this by 
 limiting the probability mass that can be moved to outcomes that have never been 
-observed. This better approximates MDPs with few state transitions, something 
-that is often true for problems of large state spaces. The limit that is used is the 
+observed. This leads to better approximations of sparse MDPs. The limit that is used is the 
 approximation of the probability mass in unobserved outcomes as estimated by 
 Good and Turing as $\hat{M}_0(s,a) = |N_1(s,a)| / N(s,a)$ \parencite{gtpaper}. 
 In this equation, $N_1(s,a)$ is a set of the states that have been observed exactly
