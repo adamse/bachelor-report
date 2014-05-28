@@ -91,3 +91,6 @@ sympy-plots-for-*.tex/
 main.pdf
 
 .DS_Store
+
+# Spell check
+misspelled.txt
