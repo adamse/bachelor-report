@@ -23,25 +23,25 @@ are denoted by $V^*(s)$ and $Q^*(s, a)$. Formulas for the state-action value
 functions are analogous to those presented for the state value functions
 \parencite{barto1998reinforcement}. 
 
-Equations \eqref{equation:v_finite} and \eqref{equation:v_infinite} show the
-state-value function for a finite time horizon and an infinite, discounted,
-time horizon respectively. The future states, $s_t$, are stochastically
-distributed according to the transition probabilities of the MDP and the policy
-$\pi$ (see section~\ref{sec:mdps}).
+Equations \eqref{equation:v} and \eqref{equation:q} show the state-value
+function $V$ and the state-action-value function $Q$ defined in terms of
+utility (section~\ref{sec:utility}). The future states, $s_t$, are
+stochastically distributed according to the transition probabilities of the MDP
+and the policy $\pi$ (see section~\ref{sec:mdps}).
 
 \begin{align}
-\label{equation:v_finite}
+\label{equation:v}
 V_t^\pi(s) = \mathbb{E} \left\{
-  \left. \sum^{T}_{k=0} R(s_{t+k+1})
-  \right\vert s_t = s, \pi
+  \left. U_t
+  \right\vert s_t = s
 \right\}
 \end{align}
 
 \begin{align}
-\label{equation:v_infinite}
-V_{t}^\pi(s) = \mathbb{E} \left\{
-  \left. \sum_{k=t}^\infty \gamma^k R(s_{t+k+1})
-  \right\vert s_t = s,\pi
+\label{equation:q}
+Q_t^\pi(s, a) = \mathbb{E} \left\{
+  \left. U_t
+  \right\vert s_t = s, a_t = a
 \right\}
 \end{align}
 
