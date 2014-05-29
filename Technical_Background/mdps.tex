@@ -21,17 +21,24 @@ Within reinforcement learning, the concept of Markov decision processes (MDP) is
 
 \end{description}
 
-Some MDPs include an additional parameter, $\gamma$, the discount factor, a
-value between 0 and 1 which describes how fast the value of expected future
-rewards decays as one looks further into the future
-\parencite{barto1998reinforcement}.
-
 MDPs are similar to Markov chains, but there are two differences. First, there
 is a concept of rewards in MDPs, which is absent in Markov chains. Second, in a
 Markov chain, the only thing that affects the probabilities of transitioning to
 other states is the current state, whereas in an MPD both the current state and
 the action taken in that state are needed to know the probability distribution
 connected with the next state \parencite{altman2002applications}.
+
+\subsection{Return}
+The concept of return is used a measurement of how well an agent performs over time. In the simplest case, the return is just the sum of all rewards received in an episode. However, in a non-episodic environment, the rewards cannot just be summed up, since the interaction between the environment and the agent can go on forever. Here the concept of a discount factor is essential, $\gamma$. This parameter is a value between 0 and 1 which describes how fast the value of expected future
+rewards decays as one looks further into the future
+\parencite{barto1998reinforcement}. Thus, the return  can be expressed as in equation \eqref{returnDisc} in the case that discounting is used. 
+
+
+\begin{equation}
+\label{equation:returnDisc}
+R = \sum\limits_{k = 0}^\infty \gamma^kr_{t+k+1}
+\end{equation}
+
 
 
 \input{Technical_Background/MDP/markov_property.tex}
