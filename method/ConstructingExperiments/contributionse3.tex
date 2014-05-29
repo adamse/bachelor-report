@@ -15,10 +15,10 @@ factored too. The only difference is that in order to calculate the probability
 of a state transition, $P(s'| a, s)$ one has to find the product of all the
 partial transitions,
 \begin{equation}
-  \prod\limits _{i} P\left(s_i' | a, pa(s_i)\right)
+  \prod\limits _{i} P\left(s(i)' | a, pa(s(i))\right)
 \end{equation}
-where $i$ ranges over all partial states and $pa(s_i)$ is the setting of the
-parents of the partial state $s_i$.
+where $i$ ranges over all partial state indices, $s(i)$ is the partial state of $s$ with index $i$ and $pa(s(i))$ is the setting of the
+parents of the partial state $s(i)$.
 
 When an MDP has this structure, observations of partial transitions can be
 pooled together when the state variables are part of similar structures in the
