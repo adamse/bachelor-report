@@ -13,7 +13,7 @@ initialization, policy evaluation and policy improvement
 
 \item[Policy evaluation] \hfill \\
   Compute an updated value function, $V$, for policy $\pi$ in the MDP by using
-  the update rule \eqref{eq:vfupdate} until $V$ converges. $\pi(s, a)$ is the
+  the update rule \eqref{eq:vfupdate} until $V$ converges. Convergence means that $|V_{k+1} - V_{k}| \leq \epsilon$, where $\epsilon$ is chosen as a small value.   $\pi(s, a)$ is the
   probability of taking action $a$ in state $s$ using policy $\pi$.
 
 \begin{equation} \label{eq:vfupdate}
