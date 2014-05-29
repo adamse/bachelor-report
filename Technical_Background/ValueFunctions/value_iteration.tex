@@ -7,15 +7,16 @@ policy until the value function has converged \parencite{barto1998reinforcement}
 
 \begin{description}
 \item[Initialization] \hfill \\
-    Start with an arbitrary value function $V$.
+    Start with an arbitrary value function $V_0$.
 \item[Value iteration] \hfill \\
-    Update $V$ for each state using the update rule \eqref{eq:valiter}.
+    Update the value function for each state using the update rule \eqref{eq:valiter}.
 
 \begin{equation} \label{eq:valiter}
 V_{k+1}(s) = \max_a \sum_{s'}{P(s, a, s') \left[R(s, a) + \gamma V_k(s')\right]}
 \end{equation}
 
-\item Repeat value iteration until $V$ converges.
+\item Repeat value iteration until $V$ converges. By convergence is meant that \\$|V_{k+1} - V_{k}| \leq \epsilon$, where $\epsilon$ is chosen as a small value. 
+\item At convergence, set $V = V_k$.
 \item Compute the policy using~\eqref{eq:valiterpolicy}.
 
 \begin{equation} \label{eq:valiterpolicy}
