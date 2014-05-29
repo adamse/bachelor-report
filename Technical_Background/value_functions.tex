@@ -52,6 +52,17 @@ encountered goes to infinity, the average over these histories of rewards
 converges to the true values of the value function
 \parencite{barto1998reinforcement}.
 
-\input{Technical_Background/ValueFunctions/dynamic_programming.tex}
-\input{Technical_Background/ValueFunctions/policy_iteration.tex}
-\input{Technical_Background/ValueFunctions/value_iteration.tex}
+\paragraph{Dynamic programming}
+
+Dynamic programming is a way of dividing a problem into subproblems that can be
+solved independently. If the result of a particular subproblem is needed again,
+it can be looked up from a table. In reinforcement learning, dynamic
+programming can be used to calculate the value functions of an MDP
+\parencite{bellman1957mdp}. Examples of dynamic programming algorithms are
+policy iteration and value iteration, which are discussed in sections
+\ref{sec:pol_itr} and \ref{sec:valueiteration}. These algorithms are often the
+basis for more advanced algorithms, among them the ones described in chapter
+\ref{ch:algo}. 
+
+\input{Technical_Background/policy_iteration.tex}
+\input{Technical_Background/value_iteration.tex}

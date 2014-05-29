@@ -15,8 +15,10 @@ policy until the value function has converged \parencite{barto1998reinforcement}
 V_{k+1}(s) = \max_a \sum_{s'}{P(s, a, s') \left[R(s, a) + \gamma V_k(s')\right]}
 \end{equation}
 
-\item Repeat value iteration until $V$ converges. By convergence is meant that \\$|V_{k+1} - V_{k}| \leq \epsilon$, where $\epsilon$ is chosen as a small value. 
-\item At convergence, set $V = V_k$.
+\item Repeat value iteration until $V$ converges and set $V = V_k$. By
+  convergence is meant that $|V_{k+1} - V_{k}| \leq \epsilon$, where
+  $\epsilon$ is a small value. 
+
 \item Compute the policy using~\eqref{eq:valiterpolicy}.
 
 \begin{equation} \label{eq:valiterpolicy}
