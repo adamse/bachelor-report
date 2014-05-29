@@ -31,9 +31,7 @@ connected with the next state \parencite{altman2002applications}.
 \subsection{Utility}
 \label{theBestLabelEvah}
 \label{sec:utility}
-The concept of utility is used as a measurement of how well an agent performs over time. In the simplest case, the utility is just the sum of all rewards received in an episode (equation \eqref{equation:utilNondisc}, where $T$ is the length of an episode and $r_k$ is the reward at time step $k$). However, in a non-episodic environment, the rewards cannot just be summed up, since the interaction between the environment and the agent can go on forever. Here the concept of a discount factor, $\gamma$, is essential. This parameter is a value between 0 and 1 which describes how fast the value of expected future
-rewards decays as one looks further into the future
-\parencite{barto1998reinforcement}. Thus, the utility can be expressed as in equation \eqref{equation:utilDisc} if discounting is used. 
+
 
 The concept of utility is used as a measurement of how well an agent performs
 over time. In the simplest case, the utility is just the sum of all rewards
