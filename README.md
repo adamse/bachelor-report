@@ -7,3 +7,7 @@ Bachelor Report
 ### Everything is for free
 
 #### Christoffer-Robin doesn't have a tree
+
+# Quotes
+
+> It is not enough to succeed. Others must fail.
