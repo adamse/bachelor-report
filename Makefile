@@ -6,3 +6,6 @@ final: report
 
 clean:
 	latexmk -c main.tex
+
+fast:
+	pdflatex main.tex

@@ -30,19 +30,31 @@ connected with the next state \parencite{altman2002applications}.
 
 \subsection{Utility}
 \label{theBestLabelEvah}
-\label{utility}
-The concept of utility is used as a measurement of how well an agent performs over time. In the simplest case, the utility is just the sum of all rewards received in an episode (equation \eqref{equation:utilNondisc}, where $T$ is the length of an episode and $r_k$ is the expected reward at time step $k$). However, in a non-episodic environment, the rewards cannot just be summed up, since the interaction between the environment and the agent can go on forever. Here the concept of a discount factor, $\gamma$, is essential. This parameter is a value between 0 and 1 which describes how fast the value of expected future
-rewards decays as one looks further into the future
-\parencite{barto1998reinforcement}. Thus, the utility can be expressed as in equation \eqref{equation:utilDisc} in the case that discounting is used. 
+\label{sec:utility}
 
-\begin {equation}
+The concept of utility is used as a measurement of how well an agent performs
+over time. In the simplest case, the utility is just the sum of all rewards
+received in an episode (equation \eqref{equation:utilNondisc}, where $T$ is the
+length of an episode and $r_k$ is the expected reward at time step $k$).
+
+\begin{equation}
 \label{equation:utilNondisc}
-U= r_0 + r_1 + \dots + r_{T-1} = \sum\limits_{k = 0}^{T-1} r_{k}
+U_t = r_{t+1} + r_{t+2} + \dots + r_{T}
+  = \sum\limits_{k = 0}^{T} r_{t+k+1}
 \end{equation}
+
+However, in a non-episodic environment, the rewards cannot just be summed up,
+since the interaction between the environment and the agent can go on forever.
+Here the concept of a discount factor, $\gamma$, is essential. This parameter
+is a value between 0 and 1 which describes how fast the value of expected
+future rewards decays as one looks further into the future
+\parencite{barto1998reinforcement}. Thus, the utility can be expressed as in
+equation \eqref{equation:utilDisc} in the case that discounting is used. 
 
 \begin{equation}
 \label{equation:utilDisc}
-U_{t} = r_{t + 1} + \gamma r_{t + 2} + \gamma^2 r_{t + 3} \dots=  \sum\limits_{k = 0}^\infty \gamma^kr_{t+k+1}
+U_{t} = r_{t + 1} + \gamma r_{t + 2} + \gamma^2 r_{t + 3} \dots
+  =  \sum\limits_{k = 0}^\infty \gamma^kr_{t+k+1}
 \end{equation}
 
 
