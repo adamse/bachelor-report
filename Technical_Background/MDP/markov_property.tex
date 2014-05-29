@@ -1,9 +1,19 @@
 \subsection{Markov property}
 
-A defining characteristic of an MDP is the Markov property --- that, given the
+A defining characteristic of an MDP is the Markov property---that, given the
 current state of the environment, one cannot gain any more information about
 its future behavior by also considering the previous actions and states it has
-been in. This can be compared to the state of a chess game, where the positions
+been in. Equation~\eqref{eq:markov_prop} defines this formally, the probability
+of state $s_{t+1}$ only depends on the previous state $s_t$ and action $a_t$.
+
+\begin{align}
+\label{eq:markov_prop}
+\Pr(s_{t+1} | s_t, a_t, \ldots, s_1, a_1) 
+  = \Pr(s_{t+1} | s_t, a_t) 
+  = P(s_t, a_t, s_{t+1})
+\end{align}
+
+This can be compared to the state of a chess game, where the positions
 of the pieces at any time completely summarizes everything relevant about what
 has happened previously in the game. That is, no more information about
 previous moves or states of the board is needed to decide how to play or
