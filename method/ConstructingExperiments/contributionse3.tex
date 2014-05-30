@@ -12,13 +12,14 @@ Value iteration can be done with a factored representation of an MDP in a
 fairly straightforward manner. The same equations that normal value iteration
 (section~\ref{sec:valueiteration}) is based on can be used when the MDP is
 factored too. The only difference is that in order to calculate the probability
-of a state transition, $P(s, a, s')$ one has to find the product of all the
+of a state transition, $P(s_t, a_t, s_{t+1})$ one has to find the product of all the
 partial transitions,
 \begin{equation}
-  \prod\limits _{i} P\left(s'(i) \mid pa(s'(i)), a\right)
+\prod\limits _{i} P\left(s_{t+1}(i) \mid pa(s_t(i)), a_t\right)
 \end{equation}
-where $i$ ranges over all partial state indices, $s(i)$ is the partial state of $s$ with index $i$ and $pa(s(i))$ is the setting of the
-parents of the partial state $s(i)$.
+where $i$ ranges over all partial state indices, $s(i)$ is the partial state of
+$s$ with index $i$ and $pa(s(i))$ is the setting of the parents of the partial
+state $s(i)$ as described in section~\ref{sec:factored_mdp}.
 
 When an MDP has this structure, observations of partial transitions can be
 pooled together when the state variables are part of similar structures in the
