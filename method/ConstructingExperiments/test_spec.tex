@@ -9,8 +9,70 @@ the environment, the two different agents and the experiment itself.
 The Invasive Species environment requires a number of parameters. For further
 explanation of the environment parameters consult the environment
 webpage\footnote{\url{http://2013.rl-competition.org/domains/invasive-species}}.
-The specific parameters used are presented in
-appendix~\ref{ap:environment_spec}.
+The parameters used in testing the agents were as follows.
+
+\begin{table}[H]
+\centering
+\captionof{table}{Dynamic parameters common to both species}
+\label{tab:dynamic_params_common} 
+\begin{tabular}{l r}
+ \toprule
+ Parameter & Value \\
+ \midrule
+ Eradication rate & 0.85 \\
+ Restoration rate & 0.65 \\
+ Downstream spread rate & 0.5 \\
+ Upstream spread rate & 0.1 \\
+ \bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\captionof{table}{Dynamic parameters, for the two species of trees} \label{tab:dynamic_params_not_common}
+\begin{tabular}{lrr}
+\toprule
+ Parameter & Native & Tamarix \\
+ \midrule
+ Death rate & 0.2 & 0.2 \\
+ Production rate & 200 & 200 \\
+ Exogenous arrival\footnote{Arrival of seeds from outside the environment} & Yes & Yes \\
+ Exogenous arrival probability & 0.1 & 0.1 \\
+ Exogenous arrival number & 150 & 150 \\
+ \bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\captionof{table}{Cost function parameters} \label{tab:cost_params} 
+\begin{tabular}{lr}
+ \toprule
+ Parameter & Value \\
+ \midrule
+ Cost per invaded reach & 10 \\
+ Cost per tree & 0.1 \\
+ Cost per empty slot & 0.01 \\
+ Eradication cost & 0.5 \\
+ Restoration cost & 0.9 \\
+ \bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+ \captionof{table}{Variable costs depending on number of habitats affected by action}
+ \begin{tabular}{lr}
+ \toprule
+ Parameter & Value \\
+ \midrule
+ Eradication cost & 0.4 \\
+ Restoration cost for empty slot & 0.4 \\
+ Restoration cost for invaded slot & 0.8 \\
+ \bottomrule
+\end{tabular}
+\label{tab:cost_params_var}
+\end{table}
 
 \paragraph{Agent Parameters}
 
