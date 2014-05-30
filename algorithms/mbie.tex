@@ -1,11 +1,21 @@
 \section{Model-based interval estimation}
 \label{sec:mbie}
-Model-based interval estimation is a version of value iteration whose main feature is its use of confidence intervals for the state-action values. Optimistic bounds to these confidence intervals are computed, by means of finding an optimistic bound for transition probabilities. The optimistic bounds for the transition probabilities are then used in standard value iteration to compute state-action values, from which an optimal policy can be found. State values are also computed at this point.
 
- Since the confidence intervals become less wide when the the number of data points that they are based on increases, the more times a state-action pair has been visited, the less optimistic the bounds for these intervals will be 
-\parencite{dietterich2013pac}. This has the net result of promoting exploration of state-action pairs as long as the confidence intervals are wide, but as the state-action pairs have been tried more and more times, the agent behaves in a less exploratory fashion. 
+Model-based interval estimation is a version of value iteration whose main
+feature is its use of confidence intervals for the state-action values.
+Optimistic bounds to these confidence intervals are computed, by means of
+finding an optimistic bound for transition probabilities. The optimistic bounds
+for the transition probabilities are then used in standard value iteration to
+compute state-action values, from which an optimal policy can be found. State
+values are also computed at this point.
 
-
+Since the confidence intervals become less wide when the the number of data
+points that they are based on increases, the more times a state-action pair
+has been visited, the less optimistic the bounds for these intervals will be
+\parencite{dietterich2013pac}. This has the net result of promoting
+exploration of state-action pairs as long as the confidence intervals are
+wide, but as the state-action pairs have been tried more and more times, the
+agent behaves in a less exploratory fashion. 
 
 
 \begin{comment}
@@ -18,5 +28,7 @@ however, it will exploit what it has learned so far about the MDP
 \parencite{dietterich2013pac}.
 \end{comment}
 
+\input{algorithms/MBIE/computep.tex}
 \input{algorithms/MBIE/modification_of_value_it}
+\input{algorithms/MBIE/optimistic_estimations.tex}
 \input{algorithms/MBIE/gt.tex}

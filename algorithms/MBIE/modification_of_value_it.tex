@@ -1,85 +1,3 @@
-
-\subsection{Optimistic estimations of transition probabilities}
-\label{sec:computep}
-
-The first step of the MBIE algorithm is to find optimistic estimations of transition probabilities. Equation \eqref{equation:balls_of_steels} describes, as a set, the confidence interval (CI) used by MBIE for the probability distribution over destination states when taking action $a$ in state $s$. So, the first task of the algorithm is to find the element within this set that is maximally optimistic, meaning that it gives the best value to $(s,a)$ in the following value-iteration step of the MBIE algorithm. A description of how this is done in practice is described in section \ref{sec:ptilde}. 
-
-In equation \eqref{equation:balls_of_steels}, $\hat{P}$ is the observed probability distribution (treated as a vector) for destination states from $(s,a)$, $N(s,a)$ is the number of times that the state-action pair $(s,a)$ has been observed, $\delta$ is a confidence parameter,  $\omega$ is a value given by \eqref{equation:omega} and $\|x\|_1$ denotes the l1-norm of the vector $x$. The l1-norm is the sum of the absolute value of all elements of a vector. 
-
-\begin{equation}
-\label{equation:balls_of_steels}
-CI\left(\hat{P} \left| N(s, a), \delta\right.\right)  = \left\{\tilde{P} \left| \|\tilde{P} - \hat{P}\|_1 \le \omega(N(s,a), \delta), \|\hat{P}\|_1 = 1, \hat{P}_i \geq 0  \right.\right\}
-\end{equation}
-
-\begin{equation}
-\label{equation:omega}
-   \omega(N(s,a),\delta) = {\sqrt{\frac{2|ln(2^{|S|}-2) - ln  \delta |}{N(s,a)}}}
-\end{equation}
-
-In equation \eqref{equation:omega}, $\omega(N(s,a),\delta)$ gives a bound for how much the vector of transition probabilities can be changed from the observed values, while remaining within the confidence interval. In this equation, $|S|$ is the number of states in the MDP and the other variables have the same meaning as in \eqref{equation:balls_of_steels}. For the derivation of this formula, see  \textcite{Strehl20081309}.
-
-\subsection{Compute$\tilde{P}$}
-\label{sec:ptilde}
-The method for finding the sought element within the set denoted by \eqref{equation:balls_of_steels} 
-is refered to as Compute$\tilde{P}$ in this report. 
-The fundamental idea of the Compute$\tilde{P}$ method is that it starts with
-the observed transition probabilities $\hat{P}$ and then it moves probability
-mass from ``bad'' outcomes to ``good'' outcomes and finally returns the resulting probability distribution, $\tilde{P}$. 
-
-
-\paragraph{Initialization} The state transition probability distribution is initialized according to
-\eqref{equation:roof}, which corresponds to the observed probabilities.
-
-\begin{equation}
-\label{equation:roof}
-\tilde{P}(s'|s, a) := \hat{P}(s'|s, a) = \frac{N(s,a,s')}{N(s,a)}
-\end{equation}
-
-In \eqref{equation:roof}, $N(s, a)$ is the number of times action $a$ has been taken in
-state $s$ and $N(s, a, s')$ is the number of times action $a$ has been taken in
-state $s$ and the agent ended up in state $s'$.
-
-\paragraph{Moving probability mass} The procedure of moving probability mass is done by first finding the outcome
-state with the best $V$-value and observed probability less than 1, calling it
-$\overline{s}$. Analogously the outcome with the worst $V$-value with an
-observed probability of greater than 0 is found, and this state is called
-$\underline{s}$. If a $V$-value has not been computed yet for a certain state, it is 
-assumed to have the maximum possible value. 
-
-The probability values $\tilde{P}(\underline{s}|s,a)$ and
-$\tilde{P}(\overline{s}|s,a)$ are then increased or decreased according to
-equations \eqref{equation:ptilde_floor} and \eqref{equation:ptilde_roof}.
-
-\begin{equation}
-\label{equation:ptilde_floor}
-\tilde{P}(\underline{s}|s,a) := \tilde{P}(\underline{s}|s,a)-\xi
-\end{equation}
-
-\begin{equation}
-\label{equation:ptilde_roof}
-\tilde{P}(\overline{s}|s,a) := \tilde{P}(\overline{s}|s,a)+\xi
-\end{equation}
-
-Since the sum of the probabilities needs to equal one and 
-no single transition probability may fall below zero or exceed one, the probability distribution can only be modified by at most $\xi$, as given by
-equation \eqref{equation:xi}, where $\Delta\omega = \omega / 2$. The variable $\Delta\omega$ denotes the total mass that can be moved, without $\tilde{P}$ having a lower chance than $1 - \delta$ of being within the confidence interval for the probability distribution. If $\xi$ is less than $\Delta \omega$, new states
-$\overline{s}$ and $\underline{s}$ are found, and probabilities are moved until
-mass equal to $\Delta \omega$ has been moved in total or the probability mass has all been moved to an optimal state. 
-
-\begin{equation}
-\label{equation:xi}
-\xi = \min\{
-  1 - \tilde{P}(\overline{s} | s, a)
-  , \tilde{P}(\underline{s} | s, a)
-  , \Delta \omega 
-\}
-\end{equation}
-
-
-\label{goto}
-
-
-
 \subsection{Value iteration with confidence intervals}
 \label{sec:modification_conf_interval}
 When Compute$\tilde{P}$ has been run, the resulting $\tilde{P}$ is used in a standard value
@@ -110,7 +28,6 @@ algorithm) for all state-action pairs until it converges:
 Q_{upper} (s, a) = & R(s, a) + \nonumber \\
 & \operatorname*{max}_{\tilde{P}(s, a)\in CI(P(s, a), \delta)} \gamma \sum_{s'} \tilde{P}(s'|s, a)\operatorname*{max}_{a'} Q_{upper}(s', a')
 \end{align}
-
 
 \begin{equation}
 \label{equation:vMBIE}

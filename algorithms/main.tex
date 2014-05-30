@@ -1,21 +1,23 @@
 \chapter{Environment and algorithms}
 \label{ch:algo}
 
-This chapter gives a description of the environment and  the algorithms that were used in the
-tests described in chapter \ref{ch:method}. The main topic of the thesis is to study techniques that can be used for
-reinforcement learning in large state spaces. An example of an environment that has
-a large state space is Invasive Species, described in section \ref{sec:experiment_env}. 
+This chapter gives a description of the environment and  the algorithms that
+were used in the tests described in chapter \ref{ch:method}. The main topic of
+the thesis is to study techniques that can be used for reinforcement learning
+in large state spaces. An example of an environment that has a large state
+space is Invasive Species, described in section \ref{sec:experiment_env}. 
 
-Two algorithms are covered in this chapter, both of which deal with the problems that 
-arise with large state spaces; however, they differ in the methods they apply. In 
-the following chapter the general ideas behind the algorithms, as well as specific details, are
-presented. 
+Two algorithms are covered in this chapter, both of which deal with the
+problems that arise with large state spaces; however, they differ in the
+methods they apply. In the following chapter the general ideas behind the
+algorithms, as well as specific details, are presented. 
 
 The model-based interval estimation algorithm, described in
 section~\ref{sec:mbie}, utilizes clever estimations of confidence intervals for
 the Q-value functions to improve performance in sparse MDPs.
 Section~\ref{sec:fac_e3} is on an algorithm that uses dynamic bayesian networks
-and factored representations to improve the \etre\ algorithm to more efficiently deal with factored MDPs. 
+and factored representations to improve the \etre\ algorithm to efficiently
+deal with factored MDPs. 
 
 \input{algorithms/environment_specification.tex}
 \input{algorithms/mbie.tex}
