@@ -16,10 +16,10 @@ V_{k+1}(s) = \max_a \sum_{s'}{P(s, a, s') \left[R(s, a) + \gamma V_k(s')\right]}
 \end{equation}
 
 \item Repeat value iteration until $V$ converges and set $V = V_k$. As in policy iteration, by
-  convergence is meant that $|V_{k+1} - V_{k}| \leq \epsilon$, where
+  convergence is meant that $|V_{k+1}(s) - V_{k}(s)| \leq \epsilon, \forall s$, where
   $\epsilon$ is a small value. 
 
-\item Compute the policy using~\eqref{eq:valiterpolicy}.
+\item Compute the policy using equation ~\eqref{eq:valiterpolicy}.
 
 \begin{equation} \label{eq:valiterpolicy}
 \pi(s) = \operatorname*{arg\,max}_a \sum_{s'}{P(s, a, s') \left[R(s, a) + \gamma V(s')\right]}
