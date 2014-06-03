@@ -20,14 +20,15 @@ preliminary tests and choosing a value giving a reasonable run time.
 
 \paragraph{Optimizing bounds}
 
-Another optimization that can be performed is that the value $\Delta \omega$ in
-equation~\eqref{equation:xi} can be tweaked to fit the environment that the
-agent is used with. Equation \eqref{equation:xi} gives bounds for which it can
-be proved that the method converges to an optimal policy, given some confidence parameter. In practice,
-however, this value can be reduced by quite a bit in order to speed up the rate
-at which the agent considers state-action pairs known. 
+Another optimization that can be performed is tweaking $\Delta \omega$ in
+equation~\eqref{equation:xi} to fit the environment that the agent is used
+with. Equation~\eqref{equation:xi} gives bounds for which it can be proved that
+the method converges to an optimal policy, given some confidence parameter. In
+practice, however, this value can be reduced by quite a bit in order to speed
+up the rate at which the agent considers state-action pairs known. 
 
 A simple linearly declining function can be used instead of
-equation~\eqref{equation:xi}. In the so called realistic implementation of MBIE we have
-used $\omega = 1 - \alpha N(s,a).$ The value of the $\alpha$ parameter was decided through experimentation (see section \ref{sec:test_spec}).
+equation~\eqref{equation:xi}. In the so called realistic implementation of MBIE
+we have used $\omega = 1 - \alpha N(s,a).$ The value of the $\alpha$ parameter
+was decided through experimentation (see section \ref{sec:test_spec}).
 
