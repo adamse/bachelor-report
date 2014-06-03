@@ -25,5 +25,9 @@ When an MDP has this structure, observations of partial transitions can be
 pooled together when the state variables are part of similar structures in the
 MDP. In the version of DBN-\etre\ described here, all state variables that have
 the same number of parent variables have their observations pooled together. 
+This means that state variables corresponding to reaches that have no other 
+reaches upstream all share the same entry in the transition probability table. 
+In the same way, reaches with the same number of directly adjacent reaches
+upstream share their entries. 
 
 \input{algorithms/Factored_E3/planning_per_reach}
