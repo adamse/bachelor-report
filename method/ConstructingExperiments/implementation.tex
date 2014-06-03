@@ -1,13 +1,14 @@
 \section{Algorithm implementation}
 \label{sec:implementation}
 
-During the implementation of our two agents we implemented two pre-existing 
-algorithms but we also added some extensions. The experiment utilized RL-Glue
-(section~\ref{sec:rl_glue}) to connect the agents and environment.  To verify
-the behavior of our agents we utilized smaller environments where the correct
-operation is either easy to derive or obvious from inspection. By starting with
-smaller problems and using an iterative approach it was possible to identify
-bottlenecks in our implementations and correct possible errors early.
+We implemented two existing algorithms and we also added some extensions.  The
+experiment utilized RL-Glue (section~\ref{sec:rl_glue}) to connect the agents
+and environment.  To verify the behavior of our agents we utilized smaller
+environments (see sections~\ref{sec:intro_grid_world} and \ref{sec:ns}) where
+the correct operation is either easy to derive or obvious from inspection. By
+starting with smaller problems and using an iterative approach it was possible
+to identify bottlenecks in our implementations and correct possible errors
+early.
 
 \input{algorithms/MBIE/modded_bounds}
 
@@ -26,6 +27,7 @@ another empty state there is an 80\% probability to succeed and 10\%
 probability to fail and 10\% to go sideways.
 
 \subsection{Network simulator}
+\label{sec:ns}
 
 A simple computer network simulation was implemented to verify the behavior of an
 early version of \etre\ algorithm. In this environment, the agent tries to keep
@@ -35,6 +37,3 @@ down, it has a chance to cause other computers connected to it to also fail. In
 each time step, the agent chooses one computer to restart, which with 100
 percent probability will be in working condition in the next time step. The
 agent is rewarded for each computer in the running state after each time step. 
-
-No results are presented for the test environments, since their purpose was only the 
-debugging and testing of the agents. 
