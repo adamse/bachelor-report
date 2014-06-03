@@ -40,8 +40,8 @@ length of an episode and $r_k$ is the expected reward at time step $k$).
 
 \begin{equation}
 \label{equation:utilNondisc}
-U_t = r_{t+1} + r_{t+2} + \dots + r_{T}
-  = \sum\limits_{k = 0}^{T} r_{t+k+1}
+U_0 = r_{0} + r_{1} + \dots + r_{T-1}
+  = \sum\limits_{k = 0}^{T-1} r_{k}
 \end{equation}
 
 However, in a non-episodic environment, the rewards cannot just be summed up,
