@@ -31,7 +31,7 @@ algorithm) for all state-action pairs until it converges:
 \begin{align}
 \label{equation:q_upper}
 Q_{upper} (s, a) = & R(s, a) + \nonumber \\
-& \operatorname*{max}_{\tilde{P}(s, a)\in CI(P(s, a), \delta)} \gamma \sum_{s'} \tilde{P}(s'|s, a)\operatorname*{max}_{a'} Q_{upper}(s', a')
+& \operatorname*{max}_{\tilde{P} \in CI(P(s, a), \delta)} \gamma \sum_{s'} \tilde{P}(s'|s, a)\operatorname*{max}_{a'} Q_{upper}(s', a')
 \end{align}
 
 \begin{equation}
