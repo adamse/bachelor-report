@@ -1,9 +1,14 @@
 \subsection{Value iteration with confidence intervals}
 \label{sec:modification_conf_interval}
+
+The bounds of the confidence intervals for the state-action values are calculated with equation \eqref{equation:q_upper} using these results equation \eqref{equation:vMBIE} calculates the state-values by taking the best action for each state.
+
+\begin{comment}
 When Compute$\tilde{P}$ has been run, the resulting $\tilde{P}$ is used in a standard value
 iteration, as in \eqref{equation:q_upper}. Thus, Compute$\tilde{P}$ finds the probability distribution that maximizes the sum in this equation. 
 
 Finally, optimistic state values are computed according to \eqref{equation:vMBIE}. These values are simply the value of the best action for each state. These values are used the next time that Compute$\tilde{P}$ is run and ``good'' and ``bad'' states need to be found. 
+\end{comment}
 
 \begin{comment}
 The confidence  bounds on the Q-values in the MBIE-algorithm are calculated by
@@ -33,3 +38,5 @@ Q_{upper} (s, a) = & R(s, a) + \nonumber \\
 \label{equation:vMBIE}
 V_{upper}(s) = \operatorname*{max}_aQ_{upper}(s,a)
 \end{equation}
+
+Section~\ref{sec:ptilde} describes a method, Compute$\tilde{P}$, for efficiently calculating the maximization step in equation \eqref{equation:q_upper}.
