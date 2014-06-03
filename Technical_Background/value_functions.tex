@@ -11,7 +11,7 @@ policy, in an MDP \parencite{barto1998reinforcement}.
 \subsection{Value functions}
 
 To solve an MDP most algorithms use an estimation of values of states or
-actions. Two value functions are usually defined, the state-value function $V :
+states and actions. Two value functions are usually defined, the state-value function $V :
 S \to \mathbb R$ and the state-action-value function $Q : S \times A \to
 \mathbb R$. As the names imply, $V$ signifies how good a state is, while $Q$
 signifies how good an action in a state is. The state-value function,
@@ -19,8 +19,7 @@ $V^\pi(s)$, returns the expected value when starting in state $s$ and following
 policy $\pi$ thereafter. The state-action-value function $Q^\pi(s, a)$ returns
 the expected value when starting in state $s$ and taking action $a$ and
 thereafter following policy $\pi$. The value functions for the optimal policy
-are denoted by $V^*(s)$ and $Q^*(s, a)$
-\parencite{barto1998reinforcement}. 
+are denoted by $V^*(s)$ and $Q^*(s, a)$ \parencite{barto1998reinforcement}. 
 
 Equations \eqref{equation:v} and \eqref{equation:q} show the state-value
 function $V$ and the state-action-value function $Q$ defined in terms of
