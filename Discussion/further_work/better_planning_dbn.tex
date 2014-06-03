@@ -1,8 +1,8 @@
 \subsection{Planning algorithm for DBN-\etre\ in factored MDPs}
 \label{sec:better_planing_algos}
 
-To be able to completely take advantage of the factored structure, the complete
-process needs to be using factored versions. DBN-\etre\ is utilizing a dynamic
+To be able to completely take advantage of the factored structure of an MDP, the complete
+process needs to use factored versions. DBN-\etre\ utilizes a dynamic
 bayesian network in order to factor the representation of the environment. In
 section \ref{sec:factored_e3} a slightly modified version of value iteration is
 used due to its simplicity and the scope of the project. Below are other
@@ -11,11 +11,11 @@ possible planning algorithms for factored MDPs.
 \paragraph{Approximate value determination}
 
 Utilizes a value determination algorithm to optimally approximate a value
-function, for factored representations using dynamic bayesian Networks. The
-algorithm uses linear programming in order to achieve as good approximation
+function, for factored representations using dynamic bayesian networks. The
+algorithm uses linear programming in order to achieve as good an approximation
 as possible, over the factors associated with small subsets of problem
 features. However, as the authors of the algorithm mentions, their algorithm
-does not take advantage of the factored conditional probability tables. Which
+does not take advantage of the factored conditional probability tables. This
 leaves room for further improvements using dynamic programming steps
 \parencite{koller1999computing}.
 
