@@ -29,7 +29,8 @@ In bayesian networks as well as dynamic bayesian networks one can define the
 parents of a random variable to be the variables that it depends on. In the
 bayesian network in figure~\ref{fig:bn} the parents of $Z$ are $pa(Z) = \{X,
 Y\}$ and in figure~\ref{fig:dbn} the parents of $Y$ are $pa(Y_{t+1}) = \{Y_t,
-X_t\}$.
+X_t\}$. A random variable $X$ is not a parent of $Y$ if they are independent,
+i.e. $\Pr(X, Y) = \Pr(X) \Pr(Y)$.
 
 States in an MDP can be factored into several state variables representing
 different features of the state. Using this factorization transition
