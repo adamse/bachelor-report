@@ -26,6 +26,8 @@ other states is the current state, whereas in an MPD both the current state and
 the action taken in that state are needed to know the probability distribution
 connected with the next state \parencite{altman2002applications}.
 
+If there are only a few states $s'$ for which $P(s, a, s') > 0$, the MDP is called a sparse MDP. That is to say, when an agent performs a certain action, $a$, in a certain state, $s$, the environment can only end up in a small fraction out of the total number of states \parencite{dietterich2013pac}. 
+
 \subsection{Utility}
 \label{theBestLabelEvah}
 \label{sec:utility}
@@ -58,5 +60,5 @@ U_{t} = r_{t + 1} + \gamma r_{t + 2} + \gamma^2 r_{t + 3} \dots
 
 
 \input{Technical_Background/MDP/markov_property.tex}
-\input{Technical_Background/MDP/sparse_mdps.tex}
+%\input{Technical_Background/MDP/sparse_mdps.tex}
 \input{Technical_Background/MDP/factored_representations.tex}
