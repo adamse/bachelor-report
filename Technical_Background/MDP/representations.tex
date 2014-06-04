@@ -1,0 +1,32 @@
+\subsection{Representations}
+
+Two ways to represent an MDP are extensional and factored representation.
+Depending on the problem domain it can be advantageous from the computational
+view to use factored representation \parencite{dean1999descision}.
+
+\paragraph{Extensional representation}
+
+The most straightforward way to model an MDP is called extensional
+representation, where the set of states and actions are enumerated directly. It
+is also commonly referred to as an explicit representation and this is the
+definition we have used so far in the report when discussing the abstract view
+of an MDP \parencite{dean1999descision}.
+
+\paragraph{Factored representation} 
+\label{sec:factored_mdp}
+
+A factored representation of the states of an MDP often results in a more
+compact way of describing the set of states. Certain properties or features of
+the states are used to factor the state space into different sets. Which
+properties or features are used is chosen by the algorithm designer, to fit the
+environment. Formally a state $s$ is in a state space $S = S_1 \times \cdots
+\times S_k$ of $k$ factors, with the state at time $t$ being $s_t = (s_t(1),
+\ldots, s_t(k))$.
+
+
+When the MDP is factored, it enables factored representations of states,
+actions and other components of the MDP as well. When using a factored action
+representation, an action can be taken based on specific state features instead
+of on the whole state. If the individual actions affect relativity few features
+or if the effects contain regularities then using a factored representation can
+result in compact representations of actions \parencite{dean1999descision}. 
