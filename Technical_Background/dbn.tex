@@ -36,9 +36,10 @@ different features of the state. Using this factorization transition
 probabilities can be represented by a set of bayesian networks, one network for
 each possible action. 
 
-In each network every state variable, $n_i$, is a node representing the setting
-at time $t$, as well as a node, $n_i'$, representing setting at time $t+1$. If
-the probability distribution of a certain state variable $n_k'$ is affected by
-the value of another state variable $n_j$ if action $a$ is taken then there is
-a directed edge from $n_j$ to $n_k'$ in the DBN corresponding to action $a$
+In each network every state variable, $s_t(i)$, is a node representing the
+state variable at time $t$, as well as a node, $s_{t+1}(i)$, representing the same state
+variable at time $t+1$. If the probability distribution of a certain state
+variable $s_{t+1}(i)$ is affected by the value of another state variable
+$s_t(j)$ if action $a$ is taken then there is a directed edge from $s_t(j)$ to
+$s_{t+1}(i)$ in the DBN corresponding to action $a$
 \parencite{guestrin2003efficient}.
