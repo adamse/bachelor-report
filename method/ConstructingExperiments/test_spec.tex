@@ -147,10 +147,11 @@ end before the agents could do any valuable learning.
 In addition to a satisfactory episode length, a reasonable number of episodes
 needs to be sampled for it to be possible to draw conclusions from the results.
 If the number of episodes is too small, the convergence of the agents cannot be
-seen. However, if the number of episodes are too large a lot of sampled data
-would be redundant for the study. Some preliminary experiments were run in
-order to tune the experiment parameters to suitable values. The episode length
-was set to 100 samples and there were 100 episodes per test.
+seen. However, too many episodes would lead to unecessary data collection due
+that the algorithms would already have converged and no interesting changes
+would happen. Some preliminary experiments were run in order to tune the
+experiment parameters to suitable values. The episode length was set to 100
+samples and there were 100 episodes per test.
 
 To evaluate the agents in the Invasive Species environment combinations of
 reaches and number of habitats per reach that can be seen in
@@ -160,8 +161,10 @@ test how the agents deal with taking actions that have to take into account
 several state components. 
 
 As seen in table ~\ref{tab:reaches_habitats}, the state count increases rapidly
-when habitats are added to the problem. This is obvious from the fact that the state count
-depends exponentially on the total number of habitats; see equation \eqref{eq:statecount}, where $h$ is the number of habitats per reach and $r$ is the number of reaches.
+when habitats are added to the problem. This is obvious from the fact that the
+state count depends exponentially on the total number of habitats; see equation
+\eqref{eq:statecount}, where $h$ is the number of habitats per reach and $r$ is
+the number of reaches.
 
 \begin{equation}
 \label{eq:statecount}
