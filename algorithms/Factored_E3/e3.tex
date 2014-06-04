@@ -1,24 +1,62 @@
 \subsection{The \etre\ algorithm}
 \label{sec:e3}
 
-\etre\ (Explicit Explore or Exploit) is an algorithm that divides the state space into two parts --- known states and unknown states --- in order to decide whether it is better to explore unknown states or to exploit the agent's knowledge of the known states. A state is considered to be known if the \etre\ agent has visited it enough times. All other states are either unknown or have never even been visited. Unknown and unvisited states are treated in the same way. In the following sections a description is given of the three phases of operation of \etre\, which are called balanced wandering, exploration and exploitation \parencite{kearns2002near}.
+\etre\ (Explicit Explore or Exploit) is an algorithm that divides the state
+space into two parts --- known states and unknown states --- in order to decide
+whether it is better to explore unknown states or to exploit the agent's
+knowledge of the known states. A state is considered to be known if the \etre\
+agent has visited it enough times. All other states are either unknown or have
+never even been visited. Unknown and unvisited states are treated in the same
+way. In the following sections a description is given of the three phases of
+operation of \etre\, which are called balanced wandering, exploration and
+exploitation \parencite{kearns2002near}.
 
 \paragraph{Balanced wandering}
 
-When the agent finds itself in a state that it has not visited a large enough number of times to be considered a known state, it enters a phase called balanced wandering. When in balanced wandering, the agent always takes the action performed from this state the least number of times. 
+When the agent finds itself in a state that it has not visited a large enough
+number of times to be considered a known state, it enters a phase called
+balanced wandering. When in balanced wandering, the agent always takes the
+action performed from this state the least number of times. 
 
 
 \paragraph{Exploration}
-When the agent from the balanced wandering phase enters a state that is known, it performs a policy computation to find a policy that maximizes the agent's chance of ending up in an unknown state. 
 
-This exploration policy calculation is performed on an MDP which contains all known states and their experienced transition probabilities. 
-All unknown states are gathered in a super-state with transition probability 0 to all known states and 1 to itself. The rewards are set to 0 for known states whereas the reward for the super-state is set to the maximum possible reward. A policy based on this MDP definition will strive to perform actions that reach the super-state, i.e., an unknown state.
+When the agent from the balanced wandering phase enters a state that is known,
+it performs a policy computation to find a policy that maximizes the agent's
+chance of ending up in an unknown state. 
 
-If the chance of ending up in the super-state is below a certain threshold, it can be proved that the agent knows enough about the MDP that it is probable that it will be able to calculate a policy that is close to optimal \parencite{kearns2002near}.
+This exploration policy calculation is performed on an MDP which contains all
+known states and their experienced transition probabilities.  All unknown
+states are gathered in a super-state with transition probability 0 to all known
+states and 1 to itself. The rewards are set to 0 for known states whereas the
+reward for the super-state is set to the maximum possible reward. A policy
+based on this MDP definition will strive to perform actions that reach the
+super-state, i.e., an unknown state.
+
+If the probability of ending up in the super-state is below a certain threshold, it
+can be proved that the agent knows enough about the MDP that it is probable
+that it will be able to calculate a policy that is close to optimal
+\parencite{kearns2002near}.
+
 
 \paragraph{Exploitation}
-Inversely, if the agent's chance of being able to explore is low enough, it performs a policy computation in order to find a policy that maximizes rewards from the known part of the MDP. This exploitation policy computation is performed on an MDP comprising all known states, their observed transition probabilities and their observed rewards. A super-state representing all unknown states is also added to the MDP with reward 0 and transition probability 0 to all known states and 1 to itself. This MDP definition will result in a policy that favors staying in the known MDP and finding a policy with high return.
+
+Thus when the agent knows enough about the MDP it performs a policy computation
+to find a policy that maximizes rewards from the known part of the MDP. This
+exploitation policy computation is performed on an MDP comprising all known
+states, their observed transition probabilities and their observed rewards. A
+super-state representing all unknown states is also added to the MDP with
+reward 0 and transition probability 0 to all known states and 1 to itself.
+This MDP definition will result in a policy that favors staying in the known
+MDP and finding a policy with high return.
+
 
 \paragraph{Leaving the exploitation and exploration phases}
-When the agent is in either the exploration or exploitation phase, there are two events that can trigger it to exit these phases. First, if the agent enters an unknown state, it goes back to the balanced wandering phase. Second, if it has stayed in the exploration or exploitation phase for $T$ time steps, where $T$ is the horizon time for the MDP, it goes back to the behavior described in the ``exploration'' section above.
+
+When the agent is in either the exploration or exploitation phase, there are
+two events that can trigger it to exit these phases. First, if the agent enters
+an unknown state, it goes back to the balanced wandering phase. Second, if it
+has stayed in the exploration or exploitation phase for $T$ time steps, where
+$T$ is the horizon time for the MDP, it goes back to the behavior described in
+the ``exploration'' section above.
 
