@@ -293,6 +293,7 @@
 \newcommand{\keywords}[1]{\gdef\@keywords{#1}}
 \newcommand{\preface}[1]{\gdef\@preface{#1}} % Optional
 \newcommand{\acknowledgements}[1]{\gdef\@acknowledgements{#1}} % Optional
+\newcommand{\examiner}[1]{\gdef\@examiner{#1}} % Optional
 \newcommand{\dedication}[1]{\gdef\@dedication{#1}} % Optional
 
 \newcommand{\coverfigure}[1]{\gdef\@coverfigure{#1}}
@@ -623,6 +624,23 @@
  \@checkifdefined{ISSN}
 
  \newpage
+
+ {\noindent The Author grants to Chalmers University of Technology and University of
+ Gothenburg  the non-exclusive right to publish the Work electronically and in
+ a non-commercial purpose make it accessible on the Internet.\par}
+ \vskip 1em
+ {\noindent The Author warrants that he/she is the author to the Work, and
+ warrants that the Work does not contain text, pictures or other material that
+ violates copyright law.\par}
+ \vskip 1em
+ {\noindent The Author shall, when transferring the rights of the Work to a third party
+ (for example a publisher or a company), acknowledge the third party about this
+ agreement. If the Author has signed a copyright agreement with a third party
+ regarding the Work, the Author warrants hereby that he/she has obtained any
+ necessary permission from this third party to let Chalmers University of
+ Technology and University of Gothenburg  store the Work electronically and
+ make it accessible on the Internet.\par}
+
  \vspace*{\stretch{1}}
  {\noindent \@title\\
   \@ifundefined{@subtitle}{}{\@subtitle\\}
@@ -632,6 +650,9 @@
  \vskip 2em
  {\noindent \copyright\ {\renewcommand{\and}{, }\MakeUppercase{\@author}}, \@copyrightyear\par}
  \vskip 2em
+ \@ifundefined{@examiner}{}{{\noindent Examiner: \MakeUppercase{\@examiner}\par}
+ \vskip 2em
+ }
  {\noindent%
   \ifdefempty{\@reportno}{}{\@reportseries\ \@reportno\\}%
   \ifdefempty{\@ISSN}{}{ISSN \@ISSN\\}%
