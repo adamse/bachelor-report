@@ -10,7 +10,7 @@ this thesis, this policy computation is performed in two steps.
 In the first step, a policy is calculated for state variables that have no
 other state variables than themselves as parents in the DBN, and these states
 are marked as done. This calculation is done by value iteration where the reward function
-is described in \refeq{equation:fusk} and described below. Since there is now a decided action for each value for
+is described in \eqref{equation:fusk} and described below. Since there is now a decided action for each value for
 these state variables, the transition probabilities for these variables can be
 considered as pure Markov chains in the next step. In this step, a policy is
 found for state variables whose parents are marked as done, until all state
