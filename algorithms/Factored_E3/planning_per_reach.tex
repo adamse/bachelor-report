@@ -10,7 +10,7 @@ this thesis, this policy computation is performed in two steps.
 In the first step, a policy is calculated for state variables that have no
 other state variables than themselves as parents in the DBN, and these states
 are marked as done. This calculation is done by value iteration where the reward function
-is described in \eqref{equation:fusk} and described below. Since there is now a decided action for each value for
+is described in equation \eqref{equation:fusk} and described below. Since there is now a decided action for each value for
 these state variables, the transition probabilities for these variables can be
 considered as pure Markov chains in the next step. In this step, a policy is
 found for state variables whose parents are marked as done, until all state
@@ -27,8 +27,8 @@ R(s(i),a(i)) = \,
  & +  x(a(i)) t(s(i)) r_x + p(a(i)) e(s(i)) r_p
 \end{align}
 
-Here $c(s(i))$ is equal to 1 if $s(i)$ is infected and 0 otherwise, $r_c$ is the reward given for each infected reach, $t(s(i))$ is the number of tamarix-infested habitats in $s(i)$, $r_t$ is the reward given for each tamarix-invaded habitat, $n(s(i))$ is the number of habitats with native trees in $s(i)$, $r_n$ is the reward given for each native habitat, $e(s(i))$ is the number of empty habitats in $s(i)$, $e_r$ is the reward given for empty habitats, $x(a(i))$ is equal to 1 if the action taken is to exterminate tamarix trees and otherwise 0, $r_x$ is the reward for trying to remove a tamarix tree, $p(a(i))$ is equal to one if the action taken is to plant native trees and 0 otherwise, and $r_p$ is the reward for trying to plant a native tree. 
-Since \eqref{equation:fusk} is a simple linear equation, the unknown variables ($r_i, r_t, r_x$ and $r_p$) can be calculated exactly once a few data points have been collected. Once this is done, the agent can use \eqref{equation:fusk} to calculate the reward for any partial state-action pair. 
+Here $c(s(i))$ is equal to 1 if $s(i)$ is infected and 0 otherwise, $r_c$ is the reward given for each infected reach, $t(s(i))$ is the number of tamarix-infested habitats in $s(i)$, $r_t$ is the reward given for each tamarix-invaded habitat, $n(s(i))$ is the number of habitats with native trees in $s(i)$, $r_n$ is the reward given for each native habitat, $e(s(i))$ is the number of empty habitats in $s(i)$, $e_r$ is the reward given for empty habitats, $x(a(i))$ is equal to 1 if the action taken is to exterminate tamarix trees and otherwise 0, $r_x$ is the reward for each tamarisk tree that the agent tries to remove, $p(a(i))$ is equal to one if the action taken is to plant native trees and 0 otherwise, and $r_p$ is the reward for each empty slot that the agent tries to plant a native tree in. 
+Since equation \eqref{equation:fusk} is a simple linear equation, the unknown variables ($r_i, r_t, r_x$ and $r_p$) can be calculated exactly once a few data points have been collected. Once this is done, the agent can use equation \eqref{equation:fusk} to calculate the reward for any partial state-action pair. 
 
 Planning for each state variable individually has the benefit of making the
 planning algorithm linear in the number of state variables, greatly reducing
