@@ -27,8 +27,12 @@ R(s(i),a(i)) = \,
  & +  x(a(i)) t(s(i)) r_x + p(a(i)) e(s(i)) r_p
 \end{align}
 
-Here $c(s(i))$ is equal to 1 if $s(i)$ is infected and 0 otherwise, $r_c$ is the reward given for each infected reach, $t(s(i))$ is the number of tamarix-infested habitats in $s(i)$, $r_t$ is the reward given for each tamarix-invaded habitat, $n(s(i))$ is the number of habitats with native trees in $s(i)$, $r_n$ is the reward given for each native habitat, $e(s(i))$ is the number of empty habitats in $s(i)$, $e_r$ is the reward given for empty habitats, $x(a(i))$ is equal to 1 if the action taken is to exterminate tamarix trees and otherwise 0, $r_x$ is the reward for each tamarisk tree that the agent tries to remove, $p(a(i))$ is equal to one if the action taken is to plant native trees and 0 otherwise, and $r_p$ is the reward for each empty slot that the agent tries to plant a native tree in. 
-Since equation \eqref{equation:fusk} is a simple linear equation, the unknown variables ($r_i, r_t, r_x$ and $r_p$) can be calculated exactly once a few data points have been collected. Once this is done, the agent can use equation \eqref{equation:fusk} to calculate the reward for any partial state-action pair. 
+where \\
+$c(s(i))$ is 1 if $s(i)$ is infected, 0 otherwise. \\
+$x(a(i))$ is 1 if action was taken to exterminate tamarix trees, 0 otherwise. \\
+$p(a(i))$ is 1 if action was taken to plant native trees, 0 otherwise. \\
+$t(s(i))$, $n(s(i))$, $e(s(i))$ is, in $s(i)$, the number of: tamarix-infested habitats, habitats with native trees and empty habitats, respectively. \\
+$r_c$, $r_t$, $r_n$, $e_r$, $r_x$, $r_p$ is the reward given for each: infected reach, tamarix-invaded habitat, native habitat, empty habitats, extermination of tamarix tree and restoration of native tree in empty slot, respectively.
 
 Planning for each state variable individually has the benefit of making the
 planning algorithm linear in the number of state variables, greatly reducing
