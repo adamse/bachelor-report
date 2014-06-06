@@ -3,20 +3,20 @@
 A policy $\pi$ is a function from a state $s$ to an action $a$ that operates in
 the context of a Markov decision process, i.e. $\pi \colon S \to A$. A policy
 is thus a description of how to act in each state of an MDP. An arbitrary
-policy is denoted by $\pi$ and the optimal policy (the policy with the largest
+policy is denoted by $\pi$ and the optimal policy (the policy with the maximal
 utility in the MDP) is denoted by $\pi^*$. The rest of this section
-describes some basic algorithms for solving, that is to say finding an optimal
-policy, in an MDP \parencite{barto1998reinforcement}.
+describes some basic algorithms for solving an MDP, that is to say, finding an optimal
+policy for it \parencite{barto1998reinforcement}.
 
 \subsection{Value functions}
 
-To solve an MDP most algorithms use an estimation of values of states or
+To solve an MDP, most algorithms use an estimation of values of states or
 states and actions. Two value functions are usually defined, the state-value function $V :
 S \to \mathbb R$ and the state-action-value function $Q : S \times A \to
 \mathbb R$. As the names imply, $V$ signifies how good a state is, while $Q$
 signifies how good an action in a state is. The state-value function,
 $V^\pi(s)$, returns the expected value when starting in state $s$ and following
-policy $\pi$ thereafter. The state-action-value function $Q^\pi(s, a)$ returns
+policy $\pi$ thereafter. The state-action-value function, $Q^\pi(s, a)$, returns
 the expected value when starting in state $s$ and taking action $a$ and
 thereafter following policy $\pi$. The value functions for the optimal policy, the policy
 that maximizes the utility, 
