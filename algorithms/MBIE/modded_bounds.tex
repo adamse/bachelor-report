@@ -14,8 +14,8 @@ only performs planning and updates the policy at some given interval.
 For small variants of the Invasive Species environment the policy computation
 is performed every time the number of observations of a state-action pair has
 doubled. For large variants we perform planning when the total number of
-actions taken has increased by 1.5. A large variant is defined as when the
-number of state variables exceeds 9, this number was determined by running some
+actions taken has increased by 50\% since the last time when planning was performed. A large variant is defined as one where the
+number of state variables exceeds 9. This number was determined by running some
 preliminary tests and choosing a value giving a reasonable run time.
 
 \paragraph{Optimizing bounds}
