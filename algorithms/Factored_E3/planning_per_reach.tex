@@ -18,7 +18,6 @@ variables are done. In this second step, the transition probabilities of the
 parents are thus treated as independent of the action taken.
 
 The reward function for the partial action $a(i)$ and the partial state $s(i)$ in the Invasive Species environment can be described as follows:
-
 \begin{align}
 \label{equation:fusk}
 R(s(i),a(i)) = \, 
@@ -26,13 +25,14 @@ R(s(i),a(i)) = \,
  & + n(s(i)) r_n + e(s(i)) r_e   \nonumber \\
  & +  x(a(i)) t(s(i)) r_x + p(a(i)) e(s(i)) r_p
 \end{align}
-
-where \\
-$c(s(i))$ is 1 if $s(i)$ is infected, 0 otherwise. \\
-$x(a(i))$ is 1 if action was taken to exterminate tamarix trees, 0 otherwise. \\
-$p(a(i))$ is 1 if action was taken to plant native trees, 0 otherwise. \\
-$t(s(i))$, $n(s(i))$, $e(s(i))$ is, in $s(i)$, the number of tamarix-infested habitats, habitats with native trees and empty habitats, respectively. \\
-$r_c$, $r_t$, $r_n$, $e_r$, $r_x$ and $r_p$ are rewards given for each infected reach, tamarix-invaded habitat, native habitat, empty habitats, extermination of tamarix tree and restoration of native tree in empty slot, respectively.
+where
+\begin{description}
+  \item[$c(s(i))$] is 1 if $s(i)$ is infected, 0 otherwise. \\
+  \item[$x(a(i))$] is 1 if action was taken to exterminate tamarix trees, 0 otherwise. \\
+  \item[$p(a(i))$] is 1 if action was taken to plant native trees, 0 otherwise. \\
+  \item[$t(s(i))$, $n(s(i))$, $e(s(i))$] is, in $s(i)$, the number of tamarix-infested habitats, habitats with native trees and empty habitats, respectively. \\
+  \item[$r_c$, $r_t$, $r_n$, $e_r$, $r_x$ and $r_p$] are rewards given for each infected reach, tamarix-invaded habitat, native habitat, empty habitats, extermination of tamarix tree and restoration of native tree in empty slot, respectively.
+\end{description}
 
 Since equation \eqref{equation:fusk} is a simple linear equation, the unknown variables ($r_i, r_t, r_x$ and $r_p$) can be calculated exactly once a few data points have been collected. Once this is done, the agent can use equation \eqref{equation:fusk} to calculate the reward for any partial state-action pair. 
 
